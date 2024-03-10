@@ -16,6 +16,16 @@
   box-shadow: 5px 5px 15px rgb(0, 0, 0);
 }
 
+.slot {
+  width: 53px;
+  height: 53px;
+  background-color: rgb(69, 40, 40);
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+  box-shadow: inset 10px 15px 15px rgb(0, 0, 0);
+}
+
 @media (max-width: 835px) {
   .part-of-board {
     width: 170px;

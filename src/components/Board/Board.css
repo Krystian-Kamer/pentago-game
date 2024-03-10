@@ -2,8 +2,6 @@
   position: absolute;
   top: 55%;
   left: 50%;
-  width: 680px;
-  height: 680px;
   transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -21,6 +19,19 @@
   font-size: 60px;
   background: transparent;
 }
+
+/* .arrow-left {
+  animation: 12s spin infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  0% {
+    transform: rotate(110deg);
+  }
+} */
 
 .top-left-part .arrow-left {
   top: 40%;

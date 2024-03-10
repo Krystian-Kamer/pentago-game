@@ -2,11 +2,15 @@ import PartOfBoard from '../PartOfBoard/PartOfBoard';
 import './Board.css';
 import { PiArrowArcLeftBold, PiArrowArcRightBold } from 'react-icons/pi';
 
-const Board = () => {
+const Board = ({ blackIsNext, setBlackIsNext }) => {
+
   return (
     <div className='board'>
       <div className='part top-left-part'>
-        <PartOfBoard />
+        <PartOfBoard
+          blackIsNext={blackIsNext}
+          setBlackIsNext={setBlackIsNext}
+        />
         <button className='arrow arrow-left'>
           <PiArrowArcLeftBold />
         </button>
@@ -16,7 +20,10 @@ const Board = () => {
       </div>
 
       <div className='part top-right-part'>
-        <PartOfBoard />
+        <PartOfBoard
+          blackIsNext={blackIsNext}
+          setBlackIsNext={setBlackIsNext}
+        />
         <button className='arrow arrow-left'>
           <PiArrowArcLeftBold />
         </button>
@@ -26,7 +33,10 @@ const Board = () => {
       </div>
 
       <div className='part bottom-left-part'>
-        <PartOfBoard />
+        <PartOfBoard
+          blackIsNext={blackIsNext}
+          setBlackIsNext={setBlackIsNext}
+        />
         <button className='arrow arrow-left'>
           <PiArrowArcLeftBold />
         </button>
@@ -36,7 +46,10 @@ const Board = () => {
       </div>
 
       <div className='part bottom-right-part'>
-        <PartOfBoard />
+        <PartOfBoard
+          blackIsNext={blackIsNext}
+          setBlackIsNext={setBlackIsNext}
+        />
         <button className='arrow arrow-left'>
           <PiArrowArcLeftBold />
         </button>
