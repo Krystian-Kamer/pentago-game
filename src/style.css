@@ -1,0 +1,55 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to top,
+    #f78ca0 0%,
+    #f9748f 19%,
+    #fd868c 60%,
+    #fe9a8b 100%
+  );
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+img {
+  height: auto;
+}
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+textarea {
+  resize: vertical;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: audiowide;
+  src: url(./fonts/Audiowide-Regular.ttf);
+}

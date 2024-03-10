@@ -1,0 +1,22 @@
+.navbar-container {
+  margin-top: 15px;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: audiowide;
+}
+
+.navbar-container h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.navbar-container button {
+  background: transparent;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 5px;
+  margin: 0 5px;
+}
+

@@ -1,0 +1,24 @@
+.ball {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 0px 7px;
+  background: radial-gradient(circle at 30% 30%, #515050, #000000);
+  align-self: center;
+  justify-self: center;
+  cursor: grab;
+}
+
+.black-ball {
+  background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
+}
+
+.white-ball {
+  background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
+}
+@media (max-width: 819px) {
+  .ball {
+    height: 25px;
+    width: 25px;
+  }
+}
