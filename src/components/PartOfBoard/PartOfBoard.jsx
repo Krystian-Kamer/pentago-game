@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './PartOfBoard.css';
-
+import { useGameContext } from '../../gameContext';
+import '../Ball/Ball.css';
 const slotsArray = new Array(9).fill('null');
 
-const PartOfBoard = ({blackIsNext, setBlackIsNext}) => {
+const PartOfBoard = () => {
+  const { blackIsNext, setBlackIsNext } = useGameContext();
   const [part, setPart] = useState(slotsArray);
   const handleClick = (i) => {
+    console.log(blackIsNext);
     const newPart = [...part];
     if (newPart[i] === 'black' || newPart[i] === 'white') return;
     blackIsNext === true ? (newPart[i] = 'black') : (newPart[i] = 'white');

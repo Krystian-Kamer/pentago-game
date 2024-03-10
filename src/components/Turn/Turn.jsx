@@ -1,11 +1,15 @@
-import Ball from '../Ball/Ball';
 import './Turn.css';
-const Turn = ({ blackIsNext }) => {
+import { useGameContext } from '../../gameContext';
+
+const Turn = () => {
+  const { blackIsNext } = useGameContext();
   return (
     <div className='turn'>
       Player
       <div className='ball-container'>
-        <div className={blackIsNext ? 'ball black-ball' : 'ball white-ball'}></div>
+        <div
+          className={blackIsNext ? 'ball black-ball' : 'ball white-ball'}
+        ></div>
         <div className='shadow'></div>
       </div>
       Goes
