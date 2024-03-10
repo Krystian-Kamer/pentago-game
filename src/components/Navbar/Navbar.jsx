@@ -10,6 +10,7 @@ const Header = () => {
         <button>rules</button>
         <button>options</button>
         <button>about</button>
+        <button>undo</button>
       </div>
     </div>
   );
