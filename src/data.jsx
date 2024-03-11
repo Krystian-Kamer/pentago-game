@@ -21,3 +21,5 @@ export const icons = [
   { id: 'rules', icon: <HiOutlineBookOpen /> },
   { id: 'history', icon: <BsClockHistory /> },
 ];
+
+

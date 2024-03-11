@@ -4,6 +4,9 @@ import { PiArrowArcLeftBold, PiArrowArcRightBold } from 'react-icons/pi';
 
 const Board = () => {
 
+
+
+  
   return (
     <div className='board'>
       <div className='part top-left-part'>

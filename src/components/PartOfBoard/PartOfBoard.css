@@ -24,6 +24,13 @@
   align-self: center;
   justify-self: center;
   box-shadow: inset 10px 15px 15px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.slot:hover {
+  background: radial-gradient(circle at 30% 30%, #515050, #000000);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  opacity: 0.8;
 }
 
 @media (max-width: 835px) {
