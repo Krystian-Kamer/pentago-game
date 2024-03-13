@@ -1,23 +1,31 @@
+
+
 .ball {
   border-radius: 50%;
   height: 50px;
   width: 50px;
   margin: 0px 7px;
-  background: radial-gradient(circle at 30% 30%, #515050, #000000);
   align-self: center;
   justify-self: center;
 }
 
-.black-ball {
+.player-one-color {
   background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
 }
 
-.white-ball {
+.player-two-color {
   background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
 }
-@media (max-width: 819px) {
+@media (max-width: 576px) {
   .ball {
     height: 25px;
     width: 25px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+  .ball {
+    height: 40px;
+    width: 40px;
   }
 }

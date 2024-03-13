@@ -1,4 +1,3 @@
-// import { HiBars3 } from 'react-icons/hi2';
 import {
   IoSettingsOutline,
   IoInformationCircleOutline,

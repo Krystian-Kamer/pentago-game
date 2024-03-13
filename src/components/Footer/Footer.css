@@ -1,0 +1,14 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 40px;
+}
+
+.arrow-up{
+    background: transparent;
+    border: 3px solid rgb(224, 104, 104);
+    border-radius: 15px;
+    font-size: 45px;
+    margin: 15px;
+}

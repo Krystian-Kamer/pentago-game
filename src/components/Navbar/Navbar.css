@@ -1,10 +1,11 @@
 .navbar-container {
   margin-top: 15px;
-  width: 1000px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: audiowide;
+  width: 100vw;
+  max-width: 1400px;
 }
 
 .navbar-container h1 {
@@ -12,7 +13,7 @@
   text-transform: uppercase;
 }
 
-.navbar-container button {
+.bars-icon {
   background: transparent;
   font-size: 20px;
   text-transform: uppercase;
@@ -20,3 +21,55 @@
   margin: 0 5px;
 }
 
+@media (max-width: 575px) {
+  .navbar-container h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+
+  .bars-icon {
+    font-size: 40px;
+    padding: 10px;
+  }
+
+  .options {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .navbar-container h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+
+  .bars-icon {
+    font-size: 50px;
+    padding: 10px;
+  }
+  .options {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-container {
+    justify-content: space-around;
+  }
+  .navbar-container span {
+    color: rgb(156, 76, 76);
+  }
+  .bars-icon {
+    display: none;
+  }
+
+  .navbar-icon {
+    background: transparent;
+    font-size: 26px;
+    text-transform: uppercase;
+    padding: 5px;
+    margin: 0 5px;
+  }
+}

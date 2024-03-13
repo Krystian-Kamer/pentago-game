@@ -1,0 +1,32 @@
+.slot {
+  width: 53px;
+  height: 53px;
+  background-color: rgb(69, 40, 40);
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+  box-shadow: inset 10px 15px 15px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.slot:hover {
+  background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  opacity: 0.8;
+}
+
+@media (max-width: 576px) {
+  .slot {
+    height: 25px;
+    width: 25px;
+    box-shadow: inset 5px 5px 5px rgb(30, 23, 23);
+  }
+}
+
+@media (min-width: 576px) and (max-width:991px) {
+  .slot {
+    height: 40px;
+    width: 40px;
+    box-shadow: inset 10px 10px 5px rgb(30, 23, 23);
+  }
+}

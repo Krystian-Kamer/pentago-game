@@ -1,72 +1,78 @@
 import { useState } from 'react';
-import './PartOfBoard.css';
 import { useGameContext } from '../../gameContext';
+import './PartOfBoard.css';
 import '../Ball/Ball.css';
+import '../Slot/Slot.css';
 
-const initialSlotsArray = new Array(9).fill('none');
+const initialSlotsArray = new Array(9).fill(null);
 
 const PartOfBoard = () => {
-  const { blackIsNext, setBlackIsNext } = useGameContext();
-  const [part, setPart] = useState(initialSlotsArray);
+  const { isPlayer2Next, setIsPlayer2Next } = useGameContext();
+  const [partOfBoard, setPartOfBoard] = useState(initialSlotsArray);
 
   const handleClick = (i) => {
-    const newPart = [...part];
-    if (newPart[i] === 'black' || newPart[i] === 'white') return;
-    blackIsNext === true ? (newPart[i] = 'black') : (newPart[i] = 'white');
-    setPart(newPart);
-    setBlackIsNext(!blackIsNext);
+    const newPartOfBoard = [...partOfBoard];
+    if (newPartOfBoard[i] !== null) return
+    isPlayer2Next === true
+      ? (newPartOfBoard[i] = 'player-two-color')
+      : (newPartOfBoard[i] = 'player-one-color');
+    setIsPlayer2Next(!isPlayer2Next);
+    setPartOfBoard(newPartOfBoard);
+
+    // const upLeft = document.querySelector('.top-left-part');
+    // const child = upLeft.querySelector('.part-of-board');
+    // const divos = [...child.querySelectorAll('div')];
+    // const newArr = divos.map((div) => div.className);
+    // console.log(newArr);
   };
 
-  const rotateLeft = () => {
-    const rotatedLeftPart = [
-      part[2],
-      part[5],
-      part[8],
-      part[1],
-      part[4],
-      part[7],
-      part[0],
-      part[3],
-      part[6],
-    ];
-    return setPart(rotatedLeftPart);
-  };
-
-  const rotateRight = () => {
-    const rotatedRightPart = [
-      part[6],
-      part[3],
-      part[0],
-      part[7],
-      part[4],
-      part[1],
-      part[8],
-      part[5],
-      part[2],
-    ];
-    return setPart(rotatedRightPart);
-  };
+  // const rotateLeft = () => {
+  //   const rotatedLeftPart = [
+  //     part[2],
+  //     part[5],
+  //     part[8],
+  //     part[1],
+  //     part[4],
+  //     part[7],
+  //     part[0],
+  //     part[3],
+  //     part[6],
+  //   ];
+  //   return setPart(rotatedLeftPart);
+  // };
+  // const rotateRight = () => {
+  //   const rotatedRightPart = [
+  //     part[6],
+  //     part[3],
+  //     part[0],
+  //     part[7],
+  //     part[4],
+  //     part[1],
+  //     part[8],
+  //     part[5],
+  //     part[2],
+  //   ];
+  //   return setPart(rotatedRightPart);
+  // };
 
   return (
     <>
-      <button onClick={rotateLeft}>left</button>
-      <span>________</span>
-      <button onClick={rotateRight}> right</button>
+      {/* <button onClick={rotateLeft}>left</button>
+      <button onClick={rotateRight}> right</button> */}
       <div className='part-of-board'>
-        {initialSlotsArray.map((slot, index) => {
+        {initialSlotsArray.map((el, i) => {
           return (
             <div
-              onClick={() => handleClick(index)}
+              onClick={() => handleClick(i)}
               className={
-                part[index] === 'black'
-                  ? 'ball black-ball'
-                  : part[index] === 'white'
-                  ? 'ball white-ball'
+                partOfBoard[i] === 'player-two-color'
+                  ? 'ball player-two-color'
+                  : partOfBoard[i] === 'player-one-color'
+                  ? 'ball player-one-color'
                   : 'slot'
               }
-              id={index}
-              key={index}
-              value={part[index]}
+              id={i}
+              key={i}
             />
           );
         })}
