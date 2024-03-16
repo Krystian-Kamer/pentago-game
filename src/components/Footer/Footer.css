@@ -2,13 +2,39 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 40px;
 }
 
-.arrow-up{
-    background: transparent;
-    border: 3px solid rgb(224, 104, 104);
-    border-radius: 15px;
-    font-size: 45px;
-    margin: 15px;
+.arrow-up,
+.undo {
+  background: transparent;
+  border: 3px solid rgb(224, 104, 104);
+  border-radius: 15px;
+  font-size: 25px;
+  margin: 15px;
+  padding: 10px;
+}
+
+.details-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  align-items: center;
+  width: 170px;
+  padding: 5px 10px;
+}
+
+.new-game,
+.restart-game {
+  background: transparent;
+  font-family: audiowide;
+  text-transform: uppercase;
+  margin: 10px 0;
+  font-size: 18px;
+  padding: 3px 10px;
+}
+
+.restart-game {
+  border-top: 2px solid rgb(224, 104, 104);
+  padding-top: 10px;
 }

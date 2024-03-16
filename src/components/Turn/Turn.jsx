@@ -9,9 +9,7 @@ const Turn = () => {
       Player
       <div className='ball-container'>
         <div
-          className={
-            isPlayer2Next ? 'ball player-one-color' : 'ball player-two-color'
-          }
+          className={isPlayer2Next ? 'ball player-one' : 'ball player-two'}
         ></div>
 
         <div className='shadow'></div>

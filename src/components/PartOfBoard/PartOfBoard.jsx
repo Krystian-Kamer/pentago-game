@@ -1,31 +1,30 @@
 import { useState } from 'react';
 import { useGameContext } from '../../gameContext';
 import './PartOfBoard.css';
-import '../Ball/Ball.css';
-import '../Slot/Slot.css';
+import Slot from '../Slot/Slot';
 
-const initialSlotsArray = new Array(9).fill(null);
+const initialSlots = new Array(9).fill(null);
 
-const PartOfBoard = () => {
-  const { isPlayer2Next, setIsPlayer2Next } = useGameContext();
-  const [partOfBoard, setPartOfBoard] = useState(initialSlotsArray);
+const PartOfBoard = ({ id: blockId }) => {
+  const { isPlayer2Next, setIsPlayer2Next, setFullBoard, fullBoard } =
+    useGameContext();
+
+  const [block, setBlock] = useState(initialSlots);
 
   const handleClick = (i) => {
-    const newPartOfBoard = [...partOfBoard];
-    if (newPartOfBoard[i] !== null) return
+    const newBlock = [...block];
+    if (newBlock[i] !== null) return;
     isPlayer2Next === true
-      ? (newPartOfBoard[i] = 'player-two-color')
-      : (newPartOfBoard[i] = 'player-one-color');
+      ? (newBlock[i] = 'player-one')
+      : (newBlock[i] = 'player-two');
     setIsPlayer2Next(!isPlayer2Next);
-    setPartOfBoard(newPartOfBoard);
+    setBlock(newBlock);
 
-    // const upLeft = document.querySelector('.top-left-part');
-    // const child = upLeft.querySelector('.part-of-board');
-    // const divos = [...child.querySelectorAll('div')];
-    // const newArr = divos.map((div) => div.className);
-    // console.log(newArr);
+    const updatedFullBoard = [...fullBoard];
+    updatedFullBoard[blockId] = newBlock;
+    setFullBoard(updatedFullBoard);
   };
-
+  
   // const rotateLeft = () => {
   //   const rotatedLeftPart = [
   //     part[2],
@@ -38,7 +37,7 @@ const PartOfBoard = () => {
   //     part[3],
   //     part[6],
   //   ];
-  //   return setPart(rotatedLeftPart);
+  //   return setBlock(rotatedLeftPart);
   // };
   // const rotateRight = () => {
   //   const rotatedRightPart = [
@@ -52,28 +51,15 @@ const PartOfBoard = () => {
   //     part[5],
   //     part[2],
   //   ];
-  //   return setPart(rotatedRightPart);
+  //   return setBlock(rotatedRightPart);
   // };
 
   return (
     <>
-      {/* <button onClick={rotateLeft}>left</button>
-      <button onClick={rotateRight}> right</button> */}
       <div className='part-of-board'>
-        {initialSlotsArray.map((el, i) => {
+        {initialSlots.map((el, i) => {
           return (
-            <div
-              onClick={() => handleClick(i)}
-              className={
-                partOfBoard[i] === 'player-two-color'
-                  ? 'ball player-two-color'
-                  : partOfBoard[i] === 'player-one-color'
-                  ? 'ball player-one-color'
-                  : 'slot'
-              }
-              id={i}
-              key={i}
-            />
+            <Slot onSlotClick={() => handleClick(i)} value={block[i]} key={i} />
           );
         })}
       </div>
