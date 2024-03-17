@@ -3,11 +3,14 @@ import { useGameContext } from '../../gameContext';
 import './PartOfBoard.css';
 import Slot from '../Slot/Slot';
 
-const initialSlots = new Array(9).fill(null);
-
 const PartOfBoard = ({ id: blockId }) => {
-  const { isPlayer2Next, setIsPlayer2Next, setFullBoard, fullBoard } =
-    useGameContext();
+  const {
+    isPlayer2Next,
+    setIsPlayer2Next,
+    setFullBoard,
+    fullBoard,
+    initialSlots,
+  } = useGameContext();
 
   const [block, setBlock] = useState(initialSlots);
 
@@ -24,7 +27,7 @@ const PartOfBoard = ({ id: blockId }) => {
     updatedFullBoard[blockId] = newBlock;
     setFullBoard(updatedFullBoard);
   };
-  
+
   // const rotateLeft = () => {
   //   const rotatedLeftPart = [
   //     part[2],

@@ -1,0 +1,42 @@
+.modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    to top,
+    #80424e 0%,
+    #f9748f 19%,
+    #e18a8e 60%,
+    #f8cfc9 100%
+  );
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  font-family: audiowide;
+}
+
+.close-btn {
+  background: transparent;
+  font-size: 40px;
+  align-self: flex-end;
+  padding: 20px;
+}
+
+.details button {
+  width: 100vw;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  margin: 10px 0;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.text {
+  margin-left: 20px;
+}
+.icon {
+  margin-right: 20px;
+}

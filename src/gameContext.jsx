@@ -5,7 +5,9 @@ const Context = createContext();
 
 const GameContext = ({ children }) => {
   const initialSlots = new Array(9).fill(null);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [isPlayer2Next, setIsPlayer2Next] = useState(true);
+  const [score, setScore] = useState([{ player1: 0 }, { player2: 0 }]);
   const [fullBoard, setFullBoard] = useState([
     initialSlots,
     initialSlots,
@@ -16,7 +18,7 @@ const GameContext = ({ children }) => {
   const checkIfWin = (fullBoard) => {
     const sortedSlots = sortSlots(fullBoard);
     const players = ['player-one', 'player-two'];
-    
+
     for (let player of players) {
       // Rows
       for (let i = 0; i < 6; i++) {
@@ -114,12 +116,21 @@ const GameContext = ({ children }) => {
       }
     }
   };
-
   checkIfWin(fullBoard);
 
   return (
     <Context.Provider
-      value={{ isPlayer2Next, setIsPlayer2Next, setFullBoard, fullBoard }}
+      value={{
+        isPlayer2Next,
+        setIsPlayer2Next,
+        setFullBoard,
+        fullBoard,
+        initialSlots,
+        score,
+        setScore,
+        isModalOpen,
+        setIsModalOpen,
+      }}
     >
       {children}
     </Context.Provider>

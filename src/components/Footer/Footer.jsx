@@ -1,29 +1,24 @@
-import { useState } from 'react';
 import './Footer.css';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
-import { FaUndo } from 'react-icons/fa';
+import { FaUndoAlt } from 'react-icons/fa';
+import { useGameContext } from '../../gameContext';
 
 const Footer = () => {
-  const [details, setDetails] = useState(false);
+  const { setFullBoard, initialSlots, score } = useGameContext();
 
-  const showDetails = () => {
-    setDetails(!details);
+  const resetBoard = () => {
+    setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
+    //need also to empty those slots
   };
+
   return (
     <div className='footer'>
-      {details && (
-        <div className='details-container'>
-          <button className='new-game'>new game</button>
-          <button className='restart-game'>restart game</button>
-        </div>
-      )}
-
-      <button className='undo'>
-        <FaUndo />
+      <button>
+        <FaUndoAlt />
       </button>
-      <button onClick={showDetails} className='arrow-up'>
-        {details ? <MdKeyboardArrowDown /> : <MdKeyboardArrowUp />}
-      </button>
+      <div className='score'>
+        {score[0].player1}:{score[1].player2}
+      </div>
+      <button onClick={resetBoard}>reset</button>
     </div>
   );
 };
