@@ -16,7 +16,7 @@ const Footer = () => {
         <FaUndoAlt />
       </button>
       <div className='score'>
-        {score[0].player1}:{score[1].player2}
+        {score.player1}:{score.player2}
       </div>
       <button onClick={resetBoard}>reset</button>
     </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGameContext } from '../../gameContext';
 import './PartOfBoard.css';
 import Slot from '../Slot/Slot';
@@ -12,7 +12,14 @@ const PartOfBoard = ({ id: blockId }) => {
     initialSlots,
   } = useGameContext();
 
-  const [block, setBlock] = useState(initialSlots);
+
+//later think about changing this functionality and do not use block but instead fullBoard[id] to work only with one state and not multiple states
+
+  const [block, setBlock] = useState(fullBoard[blockId]);
+
+  useEffect(() => {
+    setBlock(fullBoard[blockId]);
+  }, [fullBoard]);
 
   const handleClick = (i) => {
     const newBlock = [...block];
@@ -21,41 +28,13 @@ const PartOfBoard = ({ id: blockId }) => {
       ? (newBlock[i] = 'player-one')
       : (newBlock[i] = 'player-two');
     setIsPlayer2Next(!isPlayer2Next);
-    setBlock(newBlock);
 
+
+    setBlock(newBlock);
     const updatedFullBoard = [...fullBoard];
     updatedFullBoard[blockId] = newBlock;
     setFullBoard(updatedFullBoard);
   };
-
-  // const rotateLeft = () => {
-  //   const rotatedLeftPart = [
-  //     part[2],
-  //     part[5],
-  //     part[8],
-  //     part[1],
-  //     part[4],
-  //     part[7],
-  //     part[0],
-  //     part[3],
-  //     part[6],
-  //   ];
-  //   return setBlock(rotatedLeftPart);
-  // };
-  // const rotateRight = () => {
-  //   const rotatedRightPart = [
-  //     part[6],
-  //     part[3],
-  //     part[0],
-  //     part[7],
-  //     part[4],
-  //     part[1],
-  //     part[8],
-  //     part[5],
-  //     part[2],
-  //   ];
-  //   return setBlock(rotatedRightPart);
-  // };
 
   return (
     <>
