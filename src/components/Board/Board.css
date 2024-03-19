@@ -20,18 +20,20 @@
   background: transparent;
 }
 
-/* .arrow-left {
-  animation: 12s spin infinite;
+/* .top-left-part{
+    animation: spin 2s forwards;
 }
 
+
 @keyframes spin {
-  0% {
-    transform: rotate(0);
+  from {
+    transform: rotate(0deg);
   }
-  0% {
-    transform: rotate(110deg);
+  to {
+    transform: rotate(-90deg);
   }
 } */
+
 
 .top-left-part .arrow-left {
   top: 40%;
