@@ -3,12 +3,7 @@ import { FaUndoAlt } from 'react-icons/fa';
 import { useGameContext } from '../../gameContext';
 
 const Footer = () => {
-  const { setFullBoard, initialSlots, score } = useGameContext();
-
-  const resetBoard = () => {
-    setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
-    //need also to empty those slots
-  };
+  const { score, resetBoard } = useGameContext();
 
   return (
     <div className='footer'>

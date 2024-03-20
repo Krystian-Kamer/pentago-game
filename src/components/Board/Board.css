@@ -20,20 +20,22 @@
   background: transparent;
 }
 
-/* .top-left-part{
-    animation: spin 2s forwards;
+.arrow:hover {
+  font-size: 65px;
 }
 
+.top-left-part-1 {
+  animation: spin 2s forwards;
+}
 
-@keyframes spin {
+@keyframes spin1 {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(-90deg);
   }
-} */
-
+}
 
 .top-left-part .arrow-left {
   top: 40%;

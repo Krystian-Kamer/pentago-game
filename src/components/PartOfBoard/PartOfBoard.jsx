@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
 import { useGameContext } from '../../gameContext';
 import './PartOfBoard.css';
 import Slot from '../Slot/Slot';
 
 const PartOfBoard = ({ id: partId }) => {
-  const { fullBoard, initialSlots, addBall } = useGameContext();
+  const { fullBoard, initialSlots, addBall, areArrowsShown } = useGameContext();
 
   return (
     <>
@@ -12,7 +11,9 @@ const PartOfBoard = ({ id: partId }) => {
         {initialSlots.map((el, i) => {
           return (
             <Slot
-              onSlotClick={() => addBall(i, partId)}
+              onSlotClick={
+                areArrowsShown ? undefined : () => addBall(i, partId)
+              }
               value={fullBoard[partId][i]}
               key={i}
             />

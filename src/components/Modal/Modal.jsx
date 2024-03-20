@@ -4,7 +4,7 @@ import { IoClose } from 'react-icons/io5';
 import { useGameContext } from '../../gameContext';
 
 const Modal = () => {
-  const { isModalOpen, setIsModalOpen } = useGameContext();
+  const { isModalOpen, setIsModalOpen, resetBoard } = useGameContext();
 
   return (
     <>
@@ -16,7 +16,9 @@ const Modal = () => {
 
           <div className='details'>
             <button>
-              <span className='text reset-btn'>reset game</span>
+              <span onClick={resetBoard} className='text reset-btn'>
+                reset game
+              </span>
             </button>
           </div>
 
