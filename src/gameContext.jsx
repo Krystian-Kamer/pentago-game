@@ -30,23 +30,23 @@ const GameContext = ({ children }) => {
   };
 
   const rotateLeft = (i) => {
-    // document.querySelector('.part-of-board').classList.add('top-left-part-2');
-    const rotatedLeftPart = [
-      fullBoard[i][2],
-      fullBoard[i][5],
-      fullBoard[i][8],
-      fullBoard[i][1],
-      fullBoard[i][4],
-      fullBoard[i][7],
-      fullBoard[i][0],
-      fullBoard[i][3],
-      fullBoard[i][6],
-    ];
-    const updatedFullBoard = [...fullBoard];
-    updatedFullBoard[i] = rotatedLeftPart;
-    setFullBoard(updatedFullBoard);
-    setAreArrowsShown(false);
-    checkIfWin(updatedFullBoard);
+    document.querySelector('.part-of-board').classList.add('top-left-part-1');
+    // const rotatedLeftPart = [
+    //   fullBoard[i][2],
+    //   fullBoard[i][5],
+    //   fullBoard[i][8],
+    //   fullBoard[i][1],
+    //   fullBoard[i][4],
+    //   fullBoard[i][7],
+    //   fullBoard[i][0],
+    //   fullBoard[i][3],
+    //   fullBoard[i][6],
+    // ];
+    // const updatedFullBoard = [...fullBoard];
+    // updatedFullBoard[i] = rotatedLeftPart;
+    // setFullBoard(updatedFullBoard);
+    // setAreArrowsShown(false);
+    // checkIfWin(updatedFullBoard);
   };
 
   const rotateRight = (i) => {
