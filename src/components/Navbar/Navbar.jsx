@@ -29,11 +29,12 @@ const Header = () => {
         <button onClick={() => setIsModalOpen(true)} className='bars-icon'>
           <HiBars3 />
         </button>
+
         <div className='options'>
           {detailComponents.map(({ name }) => (
             <button
               key={name}
-              onMouseEnter={() => handleMouseEnter(name)}
+              onClick={() => handleMouseEnter(name)}
               className='navbar-icon'
             >
               {name}
@@ -43,7 +44,12 @@ const Header = () => {
       </div>
       {detailComponents.map(
         ({ name, component }) =>
-          detail === name && <div key={name}> {component}</div>
+          detail === name && (
+            <div className='detail-container' key={name}>
+              {' '}
+              {component}
+            </div>
+          )
       )}
     </>
   );

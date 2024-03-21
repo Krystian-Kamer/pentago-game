@@ -38,6 +38,14 @@
   }
 }
 
+.detail-container {
+  margin: 0px auto;
+  min-width: 50vw;
+  max-width: 1100px;
+  height: 110px;
+  background-color: red;
+}
+
 @media (min-width: 576px) and (max-width: 991px) {
   .navbar-container h1 {
     font-size: 30px;
