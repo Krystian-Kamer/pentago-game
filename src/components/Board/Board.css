@@ -24,7 +24,7 @@
 }
 
 .top-left-part-1 {
-  animation: spin 2s forwards;
+  animation: spin1 2s forwards;
 }
 
 @keyframes spin1 {

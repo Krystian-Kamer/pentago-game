@@ -31,7 +31,7 @@ const GameContext = ({ children }) => {
   };
 
   const rotateLeft = (i) => {
-    document.querySelector('.part-of-board').classList.add('top-left-part-2');
+    // document.querySelector('.part-of-board').classList.add('top-left-part-2');
     const rotatedLeftPart = [
       fullBoard[i][2],
       fullBoard[i][5],
