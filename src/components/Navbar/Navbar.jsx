@@ -7,7 +7,7 @@ import Rules from '../Rules';
 import About from '../About';
 
 const Header = () => {
-  const { setIsModalOpen } = useGameContext();
+  const { setIsMenuOpen } = useGameContext();
   const [detail, setDetail] = useState('');
 
   const detailComponents = [
@@ -16,8 +16,10 @@ const Header = () => {
     { name: 'about', component: <About /> },
   ];
 
+
+
   const handleMouseEnter = (detail) => {
-    setDetail(detail);
+    setDetail((prevDetail) => (prevDetail === detail ? '' : detail));
   };
 
   return (
@@ -26,7 +28,7 @@ const Header = () => {
         <h1>
           pentago <span>game</span>
         </h1>
-        <button onClick={() => setIsModalOpen(true)} className='bars-icon'>
+        <button onClick={() => setIsMenuOpen(true)} className='bars-icon'>
           <HiBars3 />
         </button>
 
@@ -36,21 +38,26 @@ const Header = () => {
               key={name}
               onClick={() => handleMouseEnter(name)}
               className='navbar-icon'
+              style={
+                detail === name
+                  ? { borderBottom: '3px solid rgb(156, 76, 76)' }
+                  : { borderBottom: '3px solid transparent' }
+              }
             >
               {name}
             </button>
           ))}
         </div>
       </div>
-      {detailComponents.map(
-        ({ name, component }) =>
-          detail === name && (
-            <div className='detail-container' key={name}>
-              {' '}
-              {component}
-            </div>
-          )
-      )}
+      <div
+        className='details-container'
+        style={detail ? { visibility: 'visible' } : { visibility: 'hidden' }}
+      >
+        {detailComponents.map(
+          ({ name, component }) =>
+            detail === name && <div key={name}>{component}</div>
+        )}
+      </div>
     </>
   );
 };

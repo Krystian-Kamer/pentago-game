@@ -1,8 +1,7 @@
 .board {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  width: 680px;
+  height: 680px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -73,4 +72,18 @@
 .bottom-right-part .arrow-right {
   left: 40%;
   transform: rotate(180deg);
+}
+
+@media (max-width: 575px) {
+  .board {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .board {
+    width: 540px;
+    height: 540px;
+  }
 }

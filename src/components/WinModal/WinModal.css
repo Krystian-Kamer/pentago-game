@@ -1,17 +1,24 @@
 .win-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  background: transparent;
-  backdrop-filter: blur(10px);
-  border: 1px solid grey;
-  border-radius: 8px;
+  width: 300px;
+  padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 20px auto;
+  z-index: 1;
+  border-radius: 8px;
+  align-items: center;
   font-size: 30px;
-  color: white;
+  color: rgb(0, 0, 0);
+  font-family: audiowide;
+  text-transform: uppercase;
 }
 
+.win-modal button {
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}

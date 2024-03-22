@@ -2,17 +2,17 @@ import Board from './components/Board/Board';
 import Navbar from './components/Navbar/Navbar';
 import Turn from './components/Turn/Turn';
 import Footer from './components/Footer/Footer';
-import Modal from './components/Modal/Modal';
-// import WinModal from './components/WinModal/WinModal';
+import Menu from './components/Menu/Menu';
+import WinModal from './components/WinModal/WinModal';
 
 const App = () => {
   return (
     <>
-      <Modal />
-      {/* <WinModal /> */}
+      <Menu />
       <Navbar />
       <Turn />
       <Board />
+      <WinModal />
       <Footer />
     </>
   );

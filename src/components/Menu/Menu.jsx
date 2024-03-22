@@ -1,16 +1,16 @@
-import './Modal.css';
+import './Menu.css';
 import { FaAngleDown } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 import { useGameContext } from '../../gameContext';
 
 const Modal = () => {
-  const { isModalOpen, setIsModalOpen, resetBoard } = useGameContext();
+  const { isMenuOpen, setIsMenuOpen, resetBoard } = useGameContext();
 
   return (
     <>
-      {isModalOpen && (
-        <div className='modal'>
-          <button onClick={() => setIsModalOpen(false)} className='close-btn'>
+      {isMenuOpen && (
+        <div className='menu'>
+          <button onClick={() => setIsMenuOpen(false)} className='close-btn'>
             <IoClose />
           </button>
 

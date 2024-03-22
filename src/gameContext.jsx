@@ -6,10 +6,11 @@ const initialSlots = new Array(9).fill(null);
 const Context = createContext();
 
 const GameContext = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPlayer2Next, setIsPlayer2Next] = useState(true);
   const [score, setScore] = useState({ player1: 0, player2: 0 });
   const [areArrowsShown, setAreArrowsShown] = useState(false);
+  const [whoWon, setWhoWon] = useState('');
   const [fullBoard, setFullBoard] = useState([
     initialSlots,
     initialSlots,
@@ -30,7 +31,7 @@ const GameContext = ({ children }) => {
   };
 
   const rotateLeft = (i) => {
-    // document.querySelector('.part-of-board').classList.add('top-left-part-2');
+    document.querySelector('.part-of-board').classList.add('top-left-part-2');
     const rotatedLeftPart = [
       fullBoard[i][2],
       fullBoard[i][5],
@@ -71,9 +72,11 @@ const GameContext = ({ children }) => {
   const checkIfWin = (fullBoard) => {
     const sortedBoard = sortSlots(fullBoard);
     for (const condition of winConditions) {
-      const [p1, p2, p3, p4, p5] = condition.map((pos) => sortedBoard[pos]);
+      const [p1, p2, p3, p4, p5] = condition.map((pos) => {
+        return sortedBoard[pos];
+      });
       if ([p1, p2, p3, p4, p5].every((player) => player === 'player-one')) {
-        console.log('Player One wins!');
+        setWhoWon('Player 1 won');
         setScore((prevScore) => ({
           ...prevScore,
           player1: prevScore.player1 + 1,
@@ -81,7 +84,7 @@ const GameContext = ({ children }) => {
       } else if (
         [p1, p2, p3, p4, p5].every((player) => player === 'player-two')
       ) {
-        console.log('Player Two wins!');
+        setWhoWon('Player 2 won');
         setScore((prevScore) => ({
           ...prevScore,
           player2: prevScore.player2 + 1,
@@ -93,7 +96,7 @@ const GameContext = ({ children }) => {
   const resetBoard = () => {
     setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
     setScore({ player1: 0, player2: 0 });
-    if (isModalOpen) setIsModalOpen(false);
+    if (isMenuOpen) setIsMenuOpen(false);
   };
 
   return (
@@ -105,13 +108,14 @@ const GameContext = ({ children }) => {
         fullBoard,
         initialSlots,
         score,
-        isModalOpen,
-        setIsModalOpen,
+        isMenuOpen,
+        setIsMenuOpen,
         rotateLeft,
         rotateRight,
         addBall,
         areArrowsShown,
         resetBoard,
+        whoWon,
       }}
     >
       {children}

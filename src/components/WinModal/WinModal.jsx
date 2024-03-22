@@ -1,6 +1,18 @@
 import './WinModal.css';
+import { useGameContext } from '../../gameContext';
 
 const WinModal = () => {
-  return <div className='win-modal'>Player 1 won</div>;
+  const { whoWon } = useGameContext();
+
+  return (
+    <>
+      {whoWon && (
+        <div className='win-modal'>
+          <p>{whoWon}</p>
+          <button>new game</button>
+        </div>
+      )}
+    </>
+  );
 };
 export default WinModal;
