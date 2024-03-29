@@ -23,16 +23,27 @@
   font-size: 65px;
 }
 
-.top-left-part-1 {
-  animation: spin1 2s forwards;
+.spin-to-left {
+  animation: spin-left 2s forwards;
+}
+.spin-to-right {
+  animation: spin-right 2s forwards;
 }
 
-@keyframes spin1 {
+@keyframes spin-left {
   from {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
   }
   to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes spin-right {
+  from {
     transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 

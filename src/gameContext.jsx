@@ -31,7 +31,9 @@ const GameContext = ({ children }) => {
   };
 
   const rotateLeft = (i) => {
-    // document.querySelector('.part-of-board').classList.add('top-left-part-2');
+    const parts = document.querySelectorAll('.part-of-board');
+    parts[i].classList.add('spin-to-left');
+    setTimeout(() => parts[i].classList.remove('spin-to-left'), 2000);
     const rotatedLeftPart = [
       fullBoard[i][2],
       fullBoard[i][5],
@@ -51,6 +53,10 @@ const GameContext = ({ children }) => {
   };
 
   const rotateRight = (i) => {
+    const parts = document.querySelectorAll('.part-of-board');
+    parts[i].classList.add('spin-to-right');
+    setTimeout(() => parts[i].classList.remove('spin-to-right'), 2000);
+
     const rotatedRightPart = [
       fullBoard[i][6],
       fullBoard[i][3],
