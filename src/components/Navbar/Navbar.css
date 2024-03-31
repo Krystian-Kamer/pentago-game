@@ -78,6 +78,7 @@
   }
 
   .details-container {
+    position: relative;
     display: flex;
     justify-content: center;
     margin: 10px auto;
@@ -90,5 +91,17 @@
     background-color: rgba(156, 76, 76, 0.318);
     border-radius: 10px;
     box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.547);
+  }
+
+  .close-details-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 30px;
+    padding: 5px 10px;
+    background: none;
+  }
+  .close-details-btn:hover {
+    transform: scale(1.2);
   }
 }

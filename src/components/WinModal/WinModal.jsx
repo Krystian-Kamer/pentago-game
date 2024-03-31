@@ -2,14 +2,14 @@ import './WinModal.css';
 import { useGameContext } from '../../gameContext';
 
 const WinModal = () => {
-  const { whoWon } = useGameContext();
+  const { whoWon, startNewGame } = useGameContext();
 
   return (
     <>
       {whoWon && (
         <div className='win-modal'>
           <p>{whoWon}</p>
-          <button>new game</button>
+          <button onClick={startNewGame}>new game</button>
         </div>
       )}
     </>

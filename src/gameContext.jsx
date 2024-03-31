@@ -11,6 +11,8 @@ const GameContext = ({ children }) => {
   const [score, setScore] = useState({ player1: 0, player2: 0 });
   const [areArrowsShown, setAreArrowsShown] = useState(false);
   const [whoWon, setWhoWon] = useState('');
+  const [detail, setDetail] = useState('');
+  const [isPartMoving, setIsPartMoving] = useState(false);
   const [fullBoard, setFullBoard] = useState([
     initialSlots,
     initialSlots,
@@ -25,15 +27,20 @@ const GameContext = ({ children }) => {
     updatedPart[i] = isPlayer2Next ? 'player-one' : 'player-two';
     updatedFullBoard[partId] = updatedPart;
     setFullBoard(updatedFullBoard);
-    setIsPlayer2Next(!isPlayer2Next);
     setAreArrowsShown(true);
     checkIfWin(updatedFullBoard);
   };
 
   const rotateLeft = (i) => {
+    setIsPartMoving(true);
     const parts = document.querySelectorAll('.part-of-board');
     parts[i].classList.add('spin-to-left');
-    setTimeout(() => parts[i].classList.remove('spin-to-left'), 2000);
+    setTimeout(() => {
+      parts[i].classList.remove('spin-to-left');
+      setIsPlayer2Next(!isPlayer2Next);
+      setIsPartMoving(false);
+    }, 2000);
+
     const rotatedLeftPart = [
       fullBoard[i][2],
       fullBoard[i][5],
@@ -53,9 +60,14 @@ const GameContext = ({ children }) => {
   };
 
   const rotateRight = (i) => {
+    setIsPartMoving(true);
     const parts = document.querySelectorAll('.part-of-board');
     parts[i].classList.add('spin-to-right');
-    setTimeout(() => parts[i].classList.remove('spin-to-right'), 2000);
+    setTimeout(() => {
+      parts[i].classList.remove('spin-to-right');
+      setIsPlayer2Next(!isPlayer2Next);
+      setIsPartMoving(false);
+    }, 2000);
 
     const rotatedRightPart = [
       fullBoard[i][6],
@@ -99,10 +111,16 @@ const GameContext = ({ children }) => {
     }
   };
 
-  const resetBoard = () => {
+  const startNewGame = () => {
     setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
-    setScore({ player1: 0, player2: 0 });
     if (isMenuOpen) setIsMenuOpen(false);
+    if (areArrowsShown) setAreArrowsShown(false);
+    setWhoWon('');
+  };
+
+  const resetBoard = () => {
+    startNewGame();
+    setScore({ player1: 0, player2: 0 });
   };
 
   return (
@@ -122,6 +140,11 @@ const GameContext = ({ children }) => {
         areArrowsShown,
         resetBoard,
         whoWon,
+        detail,
+        setDetail,
+        setWhoWon,
+        startNewGame,
+        isPartMoving,
       }}
     >
       {children}

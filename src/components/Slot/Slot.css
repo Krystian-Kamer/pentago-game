@@ -43,27 +43,27 @@
 
 @media (max-width: 576px) {
   .ball {
-    height: 25px;
-    width: 25px;
+    height: 32px;
+    width: 32px;
   }
   .slot-1,
   .slot-2 {
-    height: 25px;
-    width: 25px;
+    height: 32px;
+    width: 32px;
     box-shadow: inset 5px 5px 5px rgb(30, 23, 23);
   }
 }
 
 @media (min-width: 577px) and (max-width: 991px) {
   .ball {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
   }
 
   .slot-1,
   .slot-2 {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     box-shadow: inset 10px 10px 5px rgb(30, 23, 23);
   }
 }

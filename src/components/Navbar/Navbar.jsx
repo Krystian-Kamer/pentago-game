@@ -7,16 +7,13 @@ import Rules from '../Rules';
 import About from '../About';
 
 const Header = () => {
-  const { setIsMenuOpen } = useGameContext();
-  const [detail, setDetail] = useState('');
+  const { setIsMenuOpen, detail, setDetail } = useGameContext();
 
   const detailComponents = [
     { name: 'options', component: <Options /> },
     { name: 'rules', component: <Rules /> },
     { name: 'about', component: <About /> },
   ];
-
-
 
   const handleMouseEnter = (detail) => {
     setDetail((prevDetail) => (prevDetail === detail ? '' : detail));
@@ -55,7 +52,17 @@ const Header = () => {
       >
         {detailComponents.map(
           ({ name, component }) =>
-            detail === name && <div key={name}>{component}</div>
+            detail === name && (
+              <>
+                <div key={name}>{component}</div>
+                <button
+                  className='close-details-btn'
+                  onClick={() => setDetail('')}
+                >
+                  x
+                </button>
+              </>
+            )
         )}
       </div>
     </>

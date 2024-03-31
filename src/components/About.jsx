@@ -6,8 +6,12 @@ const About = () => {
   return (
     <>
       <p>
-        Hello, this is a pentago game. My name is{' '}
-        <span style={{ fontWeight: 'bold' }}>Krystian Kamer</span>. I have been
+        Hello, this is a{' '}
+        <span style={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+          pentago game
+        </span>
+        . My name is
+        <span style={{ fontWeight: 'bold' }}> Krystian Kamer</span>. I have been
         passionate about board games since childhood and for the past two years
         <span style={{ fontWeight: 'bold' }}> programming</span>.
       </p>

@@ -3,8 +3,16 @@ import './PartOfBoard.css';
 import Slot from '../Slot/Slot';
 
 const PartOfBoard = ({ id: partId }) => {
-  const { fullBoard, initialSlots, addBall, areArrowsShown } = useGameContext();
+  const {
+    fullBoard,
+    initialSlots,
+    addBall,
+    areArrowsShown,
+    whoWon,
+    isPartMoving,
+  } = useGameContext();
 
+  console.log(isPartMoving);
   return (
     <>
       <div className='part-of-board'>
@@ -12,7 +20,9 @@ const PartOfBoard = ({ id: partId }) => {
           return (
             <Slot
               onSlotClick={
-                areArrowsShown ? undefined : () => addBall(i, partId)
+                areArrowsShown || whoWon || isPartMoving
+                  ? undefined
+                  : () => addBall(i, partId)
               }
               value={fullBoard[partId][i]}
               key={i}
