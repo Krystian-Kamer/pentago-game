@@ -12,7 +12,6 @@ const PartOfBoard = ({ id: partId }) => {
     isPartMoving,
   } = useGameContext();
 
-  console.log(isPartMoving);
   return (
     <>
       <div className='part-of-board'>

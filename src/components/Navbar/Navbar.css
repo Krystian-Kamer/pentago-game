@@ -91,6 +91,7 @@
     background-color: rgba(156, 76, 76, 0.318);
     border-radius: 10px;
     box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.547);
+    border: 2px solid rgb(156, 76, 76);
   }
 
   .close-details-btn {

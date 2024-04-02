@@ -1,7 +1,7 @@
 .ball {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  width: clamp(25px, 4vw, 50px);
+  height: clamp(25px, 4vw, 50px);
   margin: 0px 7px;
   align-self: center;
   justify-self: center;
@@ -15,10 +15,20 @@
   background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
 }
 
+/* .player-one {
+  background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
+}
+
+.player-two {
+  background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
+} */
+
+
+
 .slot-1,
 .slot-2 {
-  width: 53px;
-  height: 53px;
+  width: clamp(23px, 4.6vw, 55px);
+  height: clamp(23px, 4.6vw, 55px);
   background-color: rgb(69, 40, 40);
   border-radius: 50%;
   align-self: center;
@@ -42,28 +52,16 @@
 }
 
 @media (max-width: 576px) {
-  .ball {
-    height: 32px;
-    width: 32px;
-  }
   .slot-1,
   .slot-2 {
-    height: 32px;
-    width: 32px;
     box-shadow: inset 5px 5px 5px rgb(30, 23, 23);
   }
 }
 
 @media (min-width: 577px) and (max-width: 991px) {
-  .ball {
-    height: 45px;
-    width: 45px;
-  }
 
   .slot-1,
   .slot-2 {
-    height: 45px;
-    width: 45px;
     box-shadow: inset 10px 10px 5px rgb(30, 23, 23);
   }
 }

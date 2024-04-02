@@ -1,13 +1,13 @@
 .board {
   margin: 0 auto;
-  width: 680px;
-  height: 680px;
+  width: clamp(280px, 53vw, 680px);
+  height: clamp(280px, 53vw, 680px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   background-color: rgb(69, 40, 40);
-  padding: 10px;
   border-radius: 40px;
+  place-items: center;
 }
 .part {
   position: relative;
@@ -15,12 +15,22 @@
 .arrow {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: 60px;
+  font-size: clamp(10px, 6vw, 50px);
   background: transparent;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .arrow:hover {
-  font-size: 65px;
+  font-size: clamp(12px, 6.5vw, 55px);
+  animation: spin 1s linear infinite;
 }
 
 .spin-to-left {
@@ -54,10 +64,12 @@
 }
 .top-left-part .arrow-right {
   top: -10%;
+  left: 50%;
 }
 
 .top-right-part .arrow-left {
   top: -10%;
+  left: 50%;
 }
 .top-right-part .arrow-right {
   top: 40%;
@@ -83,18 +95,4 @@
 .bottom-right-part .arrow-right {
   left: 40%;
   transform: rotate(180deg);
-}
-
-@media (max-width: 575px) {
-  .board {
-    width: 380px;
-    height: 380px;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 991px) {
-  .board {
-    width: 540px;
-    height: 540px;
-  }
 }
