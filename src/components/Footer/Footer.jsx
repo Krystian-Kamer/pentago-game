@@ -8,10 +8,11 @@ const Footer = () => {
   return (
     <div className='footer'>
       <button>
-        <FaUndoAlt />
+        <FaUndoAlt className='undo-btn' />
       </button>
       <div className='score'>
-        p1 {score.player1}:{score.player2} P2
+        <span className='player-score player1-score'>{score.player1}</span>:
+        <span className='player-score player2-score'>{score.player2}</span>
       </div>
       <button onClick={resetBoard}>reset</button>
     </div>

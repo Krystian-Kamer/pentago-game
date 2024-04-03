@@ -1,27 +1,45 @@
+import { useState } from 'react';
+import { availableColors } from '../data';
+import { nanoid } from 'nanoid';
+
 const Options = () => {
+  const [playerOneColor, setPlayerOneColor] = useState('black');
+  const [playerTwoColor, setPlayerTwoColor] = useState('white');
+
+  const changeBallColor = (e, player) => {
+    if (player === 'p1') setPlayerOneColor(e.target.value);
+    if (player === 'p2') setPlayerTwoColor(e.target.value);
+    // here I must figure out how to update color of ball using bgc inside availableColors and bgc from ball
+  };
+
   return (
     <form>
-      {/* here I must add who goes first and then what color player wants */}
       <p>Who goes first?</p>
       <div style={{ display: 'flex' }}>
         <p> Player one color:</p>
-        <select>
-          <option value='1'>blue</option>
-          <option value='2'>red</option>
-          <option value='3'>green</option>
-          <option value='4'>yellow</option>
-          <option value='5'>black</option>
-          <option value='6'>white</option>
+        <select
+          name='color'
+          id='color'
+          value={playerOneColor}
+          onChange={(e) => changeBallColor(e, 'p1')}
+        >
+          {availableColors.map((color) => {
+            return <option key={nanoid()}>{color.name}</option>;
+          })}
         </select>
       </div>
+
       <div style={{ display: 'flex' }}>
         <p> Player one color:</p>
-        <select>
-          <option value='1'>blue</option>
-          <option value='2'>red</option>
-          <option value='3'>green</option>
-          <option value='4'>yellow</option>
-          <option value='6'>white</option>
+        <select
+          name='color'
+          id='color'
+          value={playerTwoColor}
+          onChange={(e) => changeBallColor(e, 'p2')}
+        >
+          {availableColors.map((color) => {
+            return <option key={nanoid()}>{color.name}</option>;
+          })}
         </select>
       </div>
     </form>

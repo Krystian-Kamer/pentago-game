@@ -1,7 +1,7 @@
 .board {
-  margin: 0 auto;
-  width: clamp(280px, 53vw, 680px);
-  height: clamp(280px, 53vw, 680px);
+  margin: 100px auto;
+  width: clamp(290px, 80vw, 680px);
+  height: clamp(290px, 80vw, 680px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -12,30 +12,11 @@
 .part {
   position: relative;
 }
-.arrow {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-size: clamp(10px, 6vw, 50px);
-  background: transparent;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.arrow:hover {
-  font-size: clamp(12px, 6.5vw, 55px);
-  animation: spin 1s linear infinite;
-}
 
 .spin-to-left {
   animation: spin-left 2s forwards;
 }
+
 .spin-to-right {
   animation: spin-right 2s forwards;
 }
@@ -48,6 +29,7 @@
     transform: rotate(0deg);
   }
 }
+
 @keyframes spin-right {
   from {
     transform: rotate(-90deg);
@@ -57,19 +39,59 @@
   }
 }
 
+.arrow {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: clamp(15px, 7vw, 50px);
+  background: transparent;
+  padding: 0px 10px;
+}
+
+@keyframes arrow-left-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes arrow-right-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.arrow-left:hover {
+  animation: arrow-left-spin 1.5s linear infinite;
+}
+
+.arrow-right:hover {
+  animation: arrow-right-spin 1.5s linear infinite;
+}
+
+.arrow:hover {
+  font-size: clamp(12px, 6.5vw, 55px);
+}
+
 .top-left-part .arrow-left {
   top: 40%;
   left: -20%;
   transform: rotate(-90deg);
 }
 .top-left-part .arrow-right {
-  top: -10%;
-  left: 50%;
+  top: -20%;
+  left: 40%;
+  transform: rotate(0deg);
 }
 
 .top-right-part .arrow-left {
-  top: -10%;
-  left: 50%;
+  top: -20%;
+  left: 40%;
+  transform: rotate(0deg);
 }
 .top-right-part .arrow-right {
   top: 40%;

@@ -1,10 +1,10 @@
 import './Navbar.css';
 import { HiBars3 } from 'react-icons/hi2';
 import { useGameContext } from '../../gameContext';
-import { useState } from 'react';
 import Options from '../Options';
 import Rules from '../Rules';
 import About from '../About';
+import { nanoid } from 'nanoid';
 
 const Header = () => {
   const { setIsMenuOpen, detail, setDetail } = useGameContext();
@@ -32,7 +32,7 @@ const Header = () => {
         <div className='options'>
           {detailComponents.map(({ name }) => (
             <button
-              key={name}
+              key={nanoid()}
               onClick={() => handleMouseEnter(name)}
               className='navbar-icon'
               style={
@@ -54,7 +54,7 @@ const Header = () => {
           ({ name, component }) =>
             detail === name && (
               <>
-                <div key={name}>{component}</div>
+                <div key={nanoid()}>{component}</div>
                 <button
                   className='close-details-btn'
                   onClick={() => setDetail('')}

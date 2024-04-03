@@ -75,3 +75,46 @@ export const winConditions = [
   ['b2', 'c3', 'd4', 'e5', 'f6'],
   ['b5', 'c4', 'd3', 'e2', 'f1'],
 ];
+
+export const availableColors = [
+  {
+    name: 'red',
+    background: 'radial-gradient(circle at 30% 30%, #e61919, #000000)',
+  },
+  {
+    name: 'blue',
+    background: 'radial-gradient(circle at 30% 30%, #2e37d8, #000000)',
+  },
+  {
+    name: 'green',
+    background: 'radial-gradient(circle at 30% 30%, #0ae92c, #000000)',
+  },
+  {
+    name: 'yellow',
+    background: 'radial-gradient(circle at 30% 30%, #d1f003, #e86161)',
+  },
+  {
+    name: 'black',
+    background: 'radial-gradient(circle at 30% 30%, #4f4b4b, #000000)',
+  },
+  {
+    name: 'white',
+    background: 'radial-gradient(circle at 30% 30%, #d8d6d6, #e86161)',
+  },
+  {
+    name: 'purple',
+    background: 'radial-gradient(circle at 30% 30%, #b306e8, #000000)',
+  },
+  {
+    name: 'pink',
+    background: 'radial-gradient(circle at 30% 30%, #fe04d9, #060606)',
+  },
+  {
+    name: 'orange',
+    background: 'radial-gradient(circle at 30% 30%, #ff8d13, #000000)',
+  },
+  {
+    name: 'brown',
+    background: 'radial-gradient(circle at 30% 30%, #7b4507, #000000)',
+  },
+];

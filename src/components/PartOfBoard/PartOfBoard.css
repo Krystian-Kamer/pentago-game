@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  width: clamp(130px, 25vw, 320px);
-  height: clamp(130px, 25vw, 320px);
+  width: clamp(130px, 37vw, 320px);
+  height: clamp(130px, 37vw, 320px);
   margin: 5px;
   background-color: rgb(133, 83, 83);
   border-radius: 40px;
@@ -14,10 +14,4 @@
 .part-of-board .ball {
   transform: scale(1.1);
   box-shadow: 5px 5px 15px rgb(0, 0, 0);
-}
-
-@media (max-width: 575px) {
-  .part-of-board {
-    border-radius: 30px;
-  }
 }
