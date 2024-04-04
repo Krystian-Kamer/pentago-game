@@ -7,56 +7,6 @@
   justify-self: center;
 }
 
-/* .red {
-  background: radial-gradient(circle at 30% 30%, #e61919, #000000);
-} */
-
-/* .blue {
-  background: radial-gradient(circle at 30% 30%, #2e37d8, #000000);
-} */
-
-/* .green {
-  background: radial-gradient(circle at 30% 30%, #0ae92c, #000000);
-}
-
-.yellow {
-  background: radial-gradient(circle at 30% 30%, #d1f003, #e86161);
-} */
-
-/* .black {
-  background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
-}
-
-.white {
-  background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
-}
- */
-
-/* .purple {
-  background: radial-gradient(circle at 30% 30%, #b306e8, #000000);
-}
-
-.pink {
-  background: radial-gradient(circle at 30% 30%, #fe04d9, #060606);
-} */
-
-/* .orange {
-  background: radial-gradient(circle at 30% 30%, #ff8d13, #000000);
-} */
-
-/* .brown {
-  background: radial-gradient(circle at 30% 30%, #7b4507, #000000);
-}
- */
-
-.player-one {
-  background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
-}
-
-.player-two {
-  background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
-}
-
 .slot-1,
 .slot-2 {
   width: clamp(23px, 5.5vw, 55px);
@@ -75,22 +25,55 @@
   opacity: 0.7;
 }
 
-.slot-1:hover {
-  background: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
+.color-black,
+.slot-color-black:hover {
+  background: var(--black);
+}
+.color-white,
+.slot-color-white:hover {
+  background: var(--white);
+}
+.color-red,
+.slot-color-red:hover {
+  background: var(--red);
+}
+.color-blue,
+.slot-color-blue:hover {
+  background: var(--blue);
+}
+.color-green,
+.slot-color-green:hover {
+  background: var(--green);
+}
+.color-yellow,
+.slot-color-yellow:hover {
+  background: var(--yellow);
+}
+.color-purple,
+.slot-color-purple:hover {
+  background: var(--purple);
+}
+.color-pink,
+.slot-color-pink:hover {
+  background: var(--pink);
+}
+.color-orange,
+.slot-color-orange:hover {
+  background: var(--orange);
+}
+.color-brown,
+.slot-color-brown:hover {
+  background: var(--brown);
 }
 
-.slot-2:hover {
-  background: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
-}
-
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .slot-1,
   .slot-2 {
     box-shadow: inset 5px 5px 5px rgb(30, 23, 23);
   }
 }
 
-@media (min-width: 577px) and (max-width: 991px) {
+@media (min-width: 576px) and (max-width: 991px) {
   .slot-1,
   .slot-2 {
     box-shadow: inset 10px 10px 5px rgb(30, 23, 23);

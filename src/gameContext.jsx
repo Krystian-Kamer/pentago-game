@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 import { sortSlots, winConditions } from './data';
 
 const initialSlots = new Array(9).fill(null);
@@ -13,6 +13,8 @@ const GameContext = ({ children }) => {
   const [whoWon, setWhoWon] = useState('');
   const [detail, setDetail] = useState('');
   const [isPartMoving, setIsPartMoving] = useState(false);
+  const [playerOneColor, setPlayerOneColor] = useState('black');
+  const [playerTwoColor, setPlayerTwoColor] = useState('white');
   const [fullBoard, setFullBoard] = useState([
     initialSlots,
     initialSlots,
@@ -28,7 +30,6 @@ const GameContext = ({ children }) => {
     updatedFullBoard[partId] = updatedPart;
     setFullBoard(updatedFullBoard);
     setAreArrowsShown(true);
-    checkIfWin(updatedFullBoard);
   };
 
   const rotateLeft = (i) => {
@@ -56,7 +57,6 @@ const GameContext = ({ children }) => {
     updatedFullBoard[i] = rotatedLeftPart;
     setFullBoard(updatedFullBoard);
     setAreArrowsShown(false);
-    checkIfWin(updatedFullBoard);
   };
 
   const rotateRight = (i) => {
@@ -84,7 +84,6 @@ const GameContext = ({ children }) => {
     updatedFullBoard[i] = rotatedRightPart;
     setFullBoard(updatedFullBoard);
     setAreArrowsShown(false);
-    checkIfWin(updatedFullBoard);
   };
 
   const checkIfWin = (fullBoard) => {
@@ -110,6 +109,10 @@ const GameContext = ({ children }) => {
       }
     }
   };
+
+  useEffect(() => {
+    checkIfWin(fullBoard);
+  }, [fullBoard]);
 
   const startNewGame = () => {
     setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
@@ -145,6 +148,10 @@ const GameContext = ({ children }) => {
         setWhoWon,
         startNewGame,
         isPartMoving,
+        setPlayerOneColor,
+        setPlayerTwoColor,
+        playerOneColor,
+        playerTwoColor,
       }}
     >
       {children}

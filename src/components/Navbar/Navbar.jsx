@@ -4,7 +4,6 @@ import { useGameContext } from '../../gameContext';
 import Options from '../Options';
 import Rules from '../Rules';
 import About from '../About';
-import { nanoid } from 'nanoid';
 
 const Header = () => {
   const { setIsMenuOpen, detail, setDetail } = useGameContext();
@@ -32,7 +31,7 @@ const Header = () => {
         <div className='options'>
           {detailComponents.map(({ name }) => (
             <button
-              key={nanoid()}
+              key={name}
               onClick={() => handleMouseEnter(name)}
               className='navbar-icon'
               style={
@@ -46,6 +45,7 @@ const Header = () => {
           ))}
         </div>
       </div>
+
       <div
         className='details-container'
         style={detail ? { visibility: 'visible' } : { visibility: 'hidden' }}
@@ -53,15 +53,15 @@ const Header = () => {
         {detailComponents.map(
           ({ name, component }) =>
             detail === name && (
-              <>
-                <div key={nanoid()}>{component}</div>
+              <div key={name}>
+                <div>{component}</div>
                 <button
                   className='close-details-btn'
                   onClick={() => setDetail('')}
                 >
                   x
                 </button>
-              </>
+              </div>
             )
         )}
       </div>

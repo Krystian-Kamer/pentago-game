@@ -5,6 +5,20 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --red: radial-gradient(circle at 30% 30%, #e61919, #000000);
+  --blue: radial-gradient(circle at 30% 30%, #2e37d8, #000000);
+  --green: radial-gradient(circle at 30% 30%, #0ae92c, #000000);
+  --yellow: radial-gradient(circle at 30% 30%, #d1f003, #e86161);
+  --black: radial-gradient(circle at 30% 30%, #4f4b4b, #000000);
+  --white: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
+  --purple: radial-gradient(circle at 30% 30%, #b306e8, #000000);
+  --pink: radial-gradient(circle at 30% 30%, #fe04d9, #060606);
+  --orange: radial-gradient(circle at 30% 30%, #ff8d13, #000000);
+  --brown: radial-gradient(circle at 30% 30%, #7b4507, #000000);
+}
+
 html,
 body {
   height: 100vh;
