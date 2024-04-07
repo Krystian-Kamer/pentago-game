@@ -15,8 +15,8 @@
   --white: radial-gradient(circle at 30% 30%, #d8d6d6, #e86161);
   --purple: radial-gradient(circle at 30% 30%, #b306e8, #000000);
   --pink: radial-gradient(circle at 30% 30%, #fe04d9, #060606);
-  --orange: radial-gradient(circle at 30% 30%, #ff8d13, #000000);
-  --brown: radial-gradient(circle at 30% 30%, #7b4507, #000000);
+  --orange: radial-gradient(circle at 30% 30%, #fc840c, #000000);
+  --brown: radial-gradient(circle at 30% 30%, #77460f, #0f0f0f);
 }
 
 html,
@@ -24,13 +24,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(
-    to top,
-    #f78ca0 0%,
-    #f9748f 19%,
-    #fd868c 60%,
-    #fe9a8b 100%
-  );
+  background-image: linear-gradient(to top, #f55e7a 0%, #fe9a8b 100%);
 }
 
 html {

@@ -3,7 +3,8 @@ import { FaUndoAlt } from 'react-icons/fa';
 import { useGameContext } from '../../gameContext';
 
 const Footer = () => {
-  const { score, resetBoard } = useGameContext();
+  const { playerOptions, resetBoard } = useGameContext();
+  const { playerOneScore, playerTwoScore } = playerOptions;
 
   return (
     <div className='footer'>
@@ -11,10 +12,12 @@ const Footer = () => {
         <FaUndoAlt className='undo-btn' />
       </button>
       <div className='score'>
-        <span className='player-score player1-score'>{score.player1}</span>:
-        <span className='player-score player2-score'>{score.player2}</span>
+        <span className='player-score player1-score'>{playerOneScore}</span>:
+        <span className='player-score player2-score'>{playerTwoScore}</span>
       </div>
-      <button onClick={resetBoard}>reset</button>
+      <button className='reset-btn' onClick={resetBoard}>
+        reset
+      </button>
     </div>
   );
 };

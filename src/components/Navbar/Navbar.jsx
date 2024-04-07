@@ -1,12 +1,15 @@
 import './Navbar.css';
 import { HiBars3 } from 'react-icons/hi2';
 import { useGameContext } from '../../gameContext';
-import Options from '../Options';
-import Rules from '../Rules';
-import About from '../About';
+import Options from '../Options/Options';
+import Rules from '../Rules/Rules';
+import About from '../About/About';
+import { useState } from 'react';
 
 const Header = () => {
-  const { setIsMenuOpen, detail, setDetail } = useGameContext();
+  const { setIsMenuOpen } = useGameContext();
+
+  const [detail, setDetail] = useState('');
 
   const detailComponents = [
     { name: 'options', component: <Options /> },
@@ -48,8 +51,7 @@ const Header = () => {
 
       <div
         className='details-container'
-        style={detail ? { visibility: 'visible' } : { visibility: 'hidden' }}
-      >
+        style={detail ? { visibility: 'visible'} : { visibility: 'hidden'}}>
         {detailComponents.map(
           ({ name, component }) =>
             detail === name && (

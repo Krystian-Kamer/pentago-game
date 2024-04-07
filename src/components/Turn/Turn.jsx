@@ -2,11 +2,13 @@ import './Turn.css';
 import { useGameContext } from '../../gameContext';
 
 const Turn = () => {
-  const { isPlayer2Next, playerOneColor, playerTwoColor } = useGameContext();
+  const { isPlayer2Next, playerOptions } = useGameContext();
+  const { playerOneColor, playerTwoColor, playerOneName, playerTwoName } =
+    playerOptions;
 
   return (
     <div className='turn'>
-      Player
+      {isPlayer2Next ? playerOneName : playerTwoName}
       <div className='ball-container'>
         <div
           className={

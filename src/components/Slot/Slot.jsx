@@ -2,7 +2,8 @@ import { useGameContext } from '../../gameContext';
 import './Slot.css';
 
 const Slot = ({ value, onSlotClick }) => {
-  const { isPlayer2Next, playerOneColor, playerTwoColor } = useGameContext();
+  const { isPlayer2Next, playerOptions } = useGameContext();
+  const { playerOneColor, playerTwoColor } = playerOptions;
 
   return (
     <div

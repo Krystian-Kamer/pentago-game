@@ -6,21 +6,25 @@ const initialSlots = new Array(9).fill(null);
 const Context = createContext();
 
 const GameContext = ({ children }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isPlayer2Next, setIsPlayer2Next] = useState(true);
-  const [score, setScore] = useState({ player1: 0, player2: 0 });
-  const [areArrowsShown, setAreArrowsShown] = useState(false);
-  const [whoWon, setWhoWon] = useState('');
-  const [detail, setDetail] = useState('');
-  const [isPartMoving, setIsPartMoving] = useState(false);
-  const [playerOneColor, setPlayerOneColor] = useState('black');
-  const [playerTwoColor, setPlayerTwoColor] = useState('white');
   const [fullBoard, setFullBoard] = useState([
     initialSlots,
     initialSlots,
     initialSlots,
     initialSlots,
   ]);
+  const [isPlayer2Next, setIsPlayer2Next] = useState(true);
+  const [isPartMoving, setIsPartMoving] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [playerOptions, setPlayerOptions] = useState({
+    playerOneScore: 0,
+    playerTwoScore: 0,
+    playerOneName: 'Player 1',
+    playerTwoName: 'Player 2',
+    playerOneColor: 'black',
+    playerTwoColor: 'white',
+  });
+  const [areArrowsShown, setAreArrowsShown] = useState(false);
+  const [whoWon, setWhoWon] = useState('');
 
   const addBall = (i, partId) => {
     const updatedFullBoard = [...fullBoard];
@@ -32,60 +36,6 @@ const GameContext = ({ children }) => {
     setAreArrowsShown(true);
   };
 
-  const rotateLeft = (i) => {
-    setIsPartMoving(true);
-    const parts = document.querySelectorAll('.part-of-board');
-    parts[i].classList.add('spin-to-left');
-    setTimeout(() => {
-      parts[i].classList.remove('spin-to-left');
-      setIsPlayer2Next(!isPlayer2Next);
-      setIsPartMoving(false);
-    }, 2000);
-
-    const rotatedLeftPart = [
-      fullBoard[i][2],
-      fullBoard[i][5],
-      fullBoard[i][8],
-      fullBoard[i][1],
-      fullBoard[i][4],
-      fullBoard[i][7],
-      fullBoard[i][0],
-      fullBoard[i][3],
-      fullBoard[i][6],
-    ];
-    const updatedFullBoard = [...fullBoard];
-    updatedFullBoard[i] = rotatedLeftPart;
-    setFullBoard(updatedFullBoard);
-    setAreArrowsShown(false);
-  };
-
-  const rotateRight = (i) => {
-    setIsPartMoving(true);
-    const parts = document.querySelectorAll('.part-of-board');
-    parts[i].classList.add('spin-to-right');
-    setTimeout(() => {
-      parts[i].classList.remove('spin-to-right');
-      setIsPlayer2Next(!isPlayer2Next);
-      setIsPartMoving(false);
-    }, 2000);
-
-    const rotatedRightPart = [
-      fullBoard[i][6],
-      fullBoard[i][3],
-      fullBoard[i][0],
-      fullBoard[i][7],
-      fullBoard[i][4],
-      fullBoard[i][1],
-      fullBoard[i][8],
-      fullBoard[i][5],
-      fullBoard[i][2],
-    ];
-    const updatedFullBoard = [...fullBoard];
-    updatedFullBoard[i] = rotatedRightPart;
-    setFullBoard(updatedFullBoard);
-    setAreArrowsShown(false);
-  };
-
   const checkIfWin = (fullBoard) => {
     const sortedBoard = sortSlots(fullBoard);
     for (const condition of winConditions) {
@@ -93,65 +43,60 @@ const GameContext = ({ children }) => {
         return sortedBoard[pos];
       });
       if ([p1, p2, p3, p4, p5].every((player) => player === 'player-one')) {
-        setWhoWon('Player 1 won');
-        setScore((prevScore) => ({
-          ...prevScore,
-          player1: prevScore.player1 + 1,
+        setWhoWon(playerOptions.playerOneName);
+        setAreArrowsShown(false);
+        setPlayerOptions((prevOptions) => ({
+          ...prevOptions,
+          playerOneScore: prevOptions.playerOneScore + 1,
         }));
       } else if (
         [p1, p2, p3, p4, p5].every((player) => player === 'player-two')
       ) {
-        setWhoWon('Player 2 won');
-        setScore((prevScore) => ({
-          ...prevScore,
-          player2: prevScore.player2 + 1,
+        setWhoWon(playerOptions.playerTwoName);
+        setAreArrowsShown(false);
+        setPlayerOptions((prevOptions) => ({
+          ...prevOptions,
+          playerTwoScore: prevOptions.playerTwoScore + 1,
         }));
       }
     }
+  };
+
+  const resetBoard = () => {
+    setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
+    if (isMenuOpen) setIsMenuOpen(false);
+    if (areArrowsShown) setAreArrowsShown(false);
+    setPlayerOptions((prevOptions) => ({
+      ...prevOptions,
+      playerOneScore: 0,
+      playerTwoScore: 0,
+    }));
   };
 
   useEffect(() => {
     checkIfWin(fullBoard);
   }, [fullBoard]);
 
-  const startNewGame = () => {
-    setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
-    if (isMenuOpen) setIsMenuOpen(false);
-    if (areArrowsShown) setAreArrowsShown(false);
-    setWhoWon('');
-  };
-
-  const resetBoard = () => {
-    startNewGame();
-    setScore({ player1: 0, player2: 0 });
-  };
-
   return (
     <Context.Provider
       value={{
         isPlayer2Next,
         setIsPlayer2Next,
-        setFullBoard,
         fullBoard,
-        initialSlots,
-        score,
+        setFullBoard,
         isMenuOpen,
         setIsMenuOpen,
-        rotateLeft,
-        rotateRight,
+        initialSlots,
         addBall,
         areArrowsShown,
         resetBoard,
         whoWon,
-        detail,
-        setDetail,
         setWhoWon,
-        startNewGame,
+        playerOptions,
+        setPlayerOptions,
+        setAreArrowsShown,
         isPartMoving,
-        setPlayerOneColor,
-        setPlayerTwoColor,
-        playerOneColor,
-        playerTwoColor,
+        setIsPartMoving,
       }}
     >
       {children}

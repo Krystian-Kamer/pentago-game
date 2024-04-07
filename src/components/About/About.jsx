@@ -1,6 +1,7 @@
 import { GrLinkedin } from 'react-icons/gr';
 import { FaSquareGithub } from 'react-icons/fa6';
 import { FaPhoneSquareAlt } from 'react-icons/fa';
+import './About.css';
 
 const About = () => {
   return (

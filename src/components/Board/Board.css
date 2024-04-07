@@ -1,5 +1,5 @@
 .board {
-  margin: 100px auto;
+  margin: 50px auto;
   width: clamp(290px, 80vw, 680px);
   height: clamp(290px, 80vw, 680px);
   display: grid;
@@ -117,4 +117,10 @@
 .bottom-right-part .arrow-right {
   left: 40%;
   transform: rotate(180deg);
+}
+
+@media (min-width: 601px) {
+  .board {
+    box-shadow: 15px 15px 25px black;
+  }
 }

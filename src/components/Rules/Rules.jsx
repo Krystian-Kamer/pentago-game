@@ -1,3 +1,5 @@
+import './Rules.css';
+
 const Rules = () => {
   return (
     <>
@@ -9,9 +11,9 @@ const Rules = () => {
         In each turn you do two things:
       </p>
       <p>1. Place a ball</p>
-      <p>2. Rotate one of four board</p>
+      <p>2. Rotate one of four boards</p>
       <p style={{ margin: '7px auto' }}>
-        If no one won then the next player goes, that's all
+        If no one won then the next player goes, have fun
       </p>
     </>
   );
