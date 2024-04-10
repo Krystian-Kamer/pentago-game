@@ -8,17 +8,18 @@ import { useState } from 'react';
 
 const Header = () => {
   const { setIsMenuOpen } = useGameContext();
+  const [activeDetail, setActiveDetail] = useState(null);
 
-  const [detail, setDetail] = useState('');
+  const detailComponents = {
+    options: <Options />,
+    rules: <Rules />,
+    about: <About />,
+  };
 
-  const detailComponents = [
-    { name: 'options', component: <Options /> },
-    { name: 'rules', component: <Rules /> },
-    { name: 'about', component: <About /> },
-  ];
-
-  const handleMouseEnter = (detail) => {
-    setDetail((prevDetail) => (prevDetail === detail ? '' : detail));
+  const handleMenuClick = (detailName) => {
+    setActiveDetail((prevDetail) =>
+      prevDetail === detailName ? null : detailName
+    );
   };
 
   return (
@@ -32,16 +33,17 @@ const Header = () => {
         </button>
 
         <div className='options'>
-          {detailComponents.map(({ name }) => (
+          {Object.keys(detailComponents).map((name) => (
             <button
               key={name}
-              onClick={() => handleMouseEnter(name)}
+              onClick={() => handleMenuClick(name)}
               className='navbar-icon'
-              style={
-                detail === name
-                  ? { borderBottom: '3px solid rgb(156, 76, 76)' }
-                  : { borderBottom: '3px solid transparent' }
-              }
+              style={{
+                borderBottom:
+                  activeDetail === name
+                    ? '3px solid rgb(156, 76, 76)'
+                    : '3px solid transparent',
+              }}
             >
               {name}
             </button>
@@ -51,20 +53,18 @@ const Header = () => {
 
       <div
         className='details-container'
-        style={detail ? { visibility: 'visible'} : { visibility: 'hidden'}}>
-        {detailComponents.map(
-          ({ name, component }) =>
-            detail === name && (
-              <div key={name}>
-                <div>{component}</div>
-                <button
-                  className='close-details-btn'
-                  onClick={() => setDetail('')}
-                >
-                  x
-                </button>
-              </div>
-            )
+        style={{ visibility: activeDetail ? 'visible' : 'hidden' }}
+      >
+        {activeDetail && (
+          <div>
+            <div>{detailComponents[activeDetail]}</div>
+            <button
+              className='close-details-btn'
+              onClick={() => setActiveDetail(null)}
+            >
+              x
+            </button>
+          </div>
         )}
       </div>
     </>

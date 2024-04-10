@@ -1,0 +1,58 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  font-size: 16px;
+  width: 700px;
+}
+
+.player-colors,
+.player-names,
+.bgc-color {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-color,
+.bgc-style {
+  display: flex;
+  align-items: center;
+}
+
+.player-names input,
+.player-color select {
+  background-color: antiquewhite;
+  padding: 2px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid transparent;
+  color: rgb(54, 52, 52);
+}
+
+.player-color select {
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+
+.player-color select:focus,
+.player-names input:focus {
+  border: 2px solid rgb(156, 76, 76);
+}
+
+.bgc-color button {
+  display: flex;
+  background-color: rgb(156, 76, 76);
+  font-size: 15px;
+  padding: 2px 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: white;
+  margin-left: 5px;
+}
+
+.bgc-color button:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
