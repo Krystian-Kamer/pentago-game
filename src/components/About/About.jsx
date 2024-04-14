@@ -5,62 +5,41 @@ import './About.css';
 
 const About = () => {
   return (
-    <>
+    <div className='about-container'>
       <p>
-        Hello, this is a{' '}
-        <span style={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-          pentago game
-        </span>
-        . My name is
-        <span style={{ fontWeight: 'bold' }}> Krystian Kamer</span>. I have been
+        Hello, this is a <span className='about-game'>pentago game</span>. My
+        name is
+        <span className='about-author'> Krystian Kamer</span>. I have been
         passionate about board games since childhood and for the past two years
-        <span style={{ fontWeight: 'bold' }}> programming</span>.
+        <span> programming</span>.
       </p>
-      <p style={{ marginTop: '10px' }}>
+      <p className='about-idea'>
         I have this game on the shelf and I really wanted to replicate its
         mechanism. I created the game from scratch, using HTML, CSS and React.
       </p>
-      <div
-        style={{
-          marginTop: '10px',
-          display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-        }}
-      >
+      <div className='about-links'>
         <a
-          style={{
-            color: 'black',
-            fontWeight: 'bold',
-          }}
+          className='about-link'
           target='_blank'
           href='https://www.linkedin.com/in/krystian-kamer-0aa148279/'
         >
-          <GrLinkedin />
-          <span style={{ marginLeft: '5px' }}>linkedIn</span>
+          <GrLinkedin className='about-icon' />
+          <span>linkedIn</span>
         </a>
         <a
-          style={{
-            color: 'black',
-            fontWeight: 'bold',
-          }}
+          className='about-link'
           target='_blank'
           href='https://github.com/Krystian-Kamer'
         >
-          <FaSquareGithub />
-          <span style={{ marginLeft: '5px' }}>github</span>
+          <FaSquareGithub className='about-icon' />
+          <span>github</span>
         </a>
-        <div
-          style={{
-            color: 'black',
-            fontWeight: 'bold',
-          }}
-        >
-          <FaPhoneSquareAlt />
-          <span style={{ marginLeft: '5px' }}>666 660 128</span>
+        <div className='about-link'>
+          <FaPhoneSquareAlt className='about-icon' />
+          <span>666 660 128</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default About;

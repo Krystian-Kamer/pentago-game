@@ -9,8 +9,8 @@
 
 .slot-1,
 .slot-2 {
-  width: clamp(23px, 5.5vw, 55px);
-  height: clamp(23px, 5.5vw, 55px);
+  width: clamp(25px, 5.8vw, 55px);
+  height: clamp(25px, 5.8vw, 55px);
   background-color: rgb(69, 40, 40);
   border-radius: 50%;
   align-self: center;
@@ -71,11 +71,19 @@
   .slot-2 {
     box-shadow: inset 5px 5px 5px rgb(30, 23, 23);
   }
+  .slot-1:hover,
+  .slot-2:hover {
+    transform: scale(1.2);
+  }
 }
 
-@media (min-width: 576px) and (max-width: 991px) {
+@media (min-width: 576px) {
   .slot-1,
   .slot-2 {
-    box-shadow: inset 10px 10px 5px rgb(30, 23, 23);
+    box-shadow: inset 15px 15px 5px rgb(30, 23, 23);
+  }
+  .slot-1:hover,
+  .slot-2:hover {
+    transform: scale(1.03);
   }
 }

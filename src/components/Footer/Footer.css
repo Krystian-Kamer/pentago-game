@@ -48,12 +48,14 @@
   left: 40px;
   width: 0;
   height: 3px;
-  background-color: rgb(156, 76, 76);
+  background-color: var(--bgcBodyTop);
   transition: width 0.5s ease;
 }
 
-.reset-btn:hover::after {
-  width: 65%;
+@media (min-width: 992px) {
+  .reset-btn:hover::after {
+    width: 65%;
+  }
 }
 
 .undo-btn:hover {

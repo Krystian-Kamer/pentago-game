@@ -6,12 +6,14 @@
   text-transform: uppercase;
   justify-content: center;
   font-family: audiowide;
+  height: clamp(60px, 8vw, 90px);
+  margin: 0 auto;
 }
 
 .ball-container {
   position: relative;
-  width: 80px;
   height: 60px;
+  width: clamp(70px, 9vw, 80px);
   display: flex;
   justify-content: center;
 }
@@ -27,8 +29,8 @@
 .shadow {
   position: absolute;
   top: 55px;
-  height: 15px;
-  width: 50px;
+  height: clamp(5px, 8vw, 15px);
+  width: clamp(30px, 8vw, 50px);
   background-color: black;
   border-radius: 50%;
   box-shadow: 0 0 10px black;
@@ -38,42 +40,42 @@
 @keyframes bounce {
   0% {
     transform: translateY(0px);
-    height: 50px;
-    width: 50px;
+    height: clamp(30px, 8vw, 50px);
+    width: clamp(30px, 8vw, 50px);
   }
 
   75% {
-    height: 50px;
-    width: 50px;
+    height: clamp(30px, 8vw, 50px);
+    width: clamp(30px, 8vw, 50px);
   }
 
   90% {
-    height: 48px;
-    width: 53px;
+    height: clamp(28px, 7.8vw, 48px);
+    width: clamp(33px, 8.2vw, 53px);
   }
 
   100% {
     transform: translateY(60px);
-    height: 40px;
-    width: 60px;
+    height: clamp(20px, 8vw, 40px);
+    width: clamp(40px, 8vw, 60px);
   }
 }
 
 @keyframes shadow {
   0% {
     opacity: 0.3;
-    width: 50px;
-    height: 15px;
+    width: clamp(30px, 8vw, 50px);
+    height: clamp(5px, 3vw, 15px);
   }
 
   75% {
     opacity: 0.45;
-    height: 8px;
+    height: clamp(4px, 6px, 8px);
   }
   100% {
     opacity: 0.5;
-    width: 30px;
-    height: 5px;
+    width: clamp(10px, 6vw, 30px);
+    height: clamp(2px, 3px, 5px);
   }
 }
 

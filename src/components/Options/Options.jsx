@@ -1,12 +1,18 @@
+import { useEffect } from 'react';
 import { availableColors } from '../../data';
-import { nanoid } from 'nanoid';
 import { useGameContext } from '../../gameContext';
 import './Options.css';
 
 const Options = () => {
   const { playerOptions, setPlayerOptions } = useGameContext();
-  const { playerOneColor, playerTwoColor, playerOneName, playerTwoName } =
-    playerOptions;
+  const {
+    playerOneColor,
+    playerTwoColor,
+    playerOneName,
+    playerTwoName,
+    backgroundColorBottom,
+    backgroundColorTop,
+  } = playerOptions;
 
   const playerOneColors = availableColors.filter(
     (color) => color !== playerTwoColor
@@ -29,73 +35,73 @@ const Options = () => {
       }));
   };
 
-  const changeBgcColor = (e, style) => {
-    e.preventDefault();
-    if (style === 'random') {
-      const R1 = Math.round(Math.random() * 255);
-      const G1 = Math.round(Math.random() * 255);
-      const B1 = Math.round(Math.random() * 255);
-      const R2 = Math.round(Math.random() * 255);
-      const G2 = Math.round(Math.random() * 255);
-      const B2 = Math.round(Math.random() * 255);
-      document.querySelector(
-        'body'
-      ).style.backgroundImage = `linear-gradient(to top,
-    rgb(${R1}, ${G1}, ${B1}) 0%,
-    rgb(${G2}, ${B2}, ${R2}) 100%
-  )`;
-    }
-    if (style === 'default') {
-      document.querySelector(
-        'body'
-      ).style.backgroundImage = `linear-gradient(to top,
-    var(--bgcBody0) 0%,
-    var(--bgcBody1) 100%
-  )`;
-    }
-  };
-
   const changePlayerName = (e, player) => {
-    if (player === 'p1')
+    if (player === 'p1') {
       setPlayerOptions((prevOptions) => ({
         ...prevOptions,
         playerOneName: e.target.value,
       }));
+    }
 
-    if (player === 'p2')
+    if (player === 'p2') {
       setPlayerOptions((prevOptions) => ({
         ...prevOptions,
         playerTwoName: e.target.value,
       }));
-
-    console.log(e.target.value);
+    }
   };
+
+  const changeBgcColor = (e, style) => {
+    e.preventDefault();
+    const randomColor = () => Math.round(Math.random() * 255);
+    if (style === 'random') {
+      setPlayerOptions((prevOptions) => ({
+        ...prevOptions,
+        backgroundColorBottom: `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`,
+        backgroundColorTop: `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`,
+      }));
+    }
+    if (style === 'default') {
+      setPlayerOptions((prevOptions) => ({
+        ...prevOptions,
+        backgroundColorBottom: '#f55e7a',
+        backgroundColorTop: '#fe9a8b',
+      }));
+    }
+  };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--bgcBodyBottom', backgroundColorBottom);
+    root.style.setProperty('--bgcBodyTop', backgroundColorTop);
+  }, [backgroundColorBottom, backgroundColorTop]);
+
   return (
     <form>
       <div className='player-colors'>
         <div className='player-color'>
           <p> Player one color:</p>
           <select
-            name='color'
-            id='color'
+            name='color-one'
+            id='color-one'
             value={playerOneColor}
             onChange={(e) => changeBallColor(e, 'p1')}
           >
             {playerOneColors.map((color) => {
-              return <option key={nanoid()}>{color}</option>;
+              return <option key={color}>{color}</option>;
             })}
           </select>
         </div>
         <div className='player-color'>
           <p> Player two color:</p>
           <select
-            name='color'
-            id='color'
+            name='color-two'
+            id='color-two'
             value={playerTwoColor}
             onChange={(e) => changeBallColor(e, 'p2')}
           >
             {playerTwoColors.map((color) => {
-              return <option key={nanoid()}>{color}</option>;
+              return <option key={color}>{color}</option>;
             })}
           </select>
         </div>
@@ -125,11 +131,15 @@ const Options = () => {
       <div className='bgc-color'>
         <div className='bgc-style random'>
           <p>For random background color:</p>
-          <button onClick={(e) => changeBgcColor(e, 'random')}>click</button>
+          <button type='button' onClick={(e) => changeBgcColor(e, 'random')}>
+            click
+          </button>
         </div>
         <div className='bgc-style default'>
           <p>Default color:</p>
-          <button onClick={(e) => changeBgcColor(e, 'default')}>click</button>
+          <button type='button' onClick={(e) => changeBgcColor(e, 'default')}>
+            click
+          </button>
         </div>
       </div>
     </form>

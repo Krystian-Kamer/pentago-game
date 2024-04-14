@@ -4,14 +4,6 @@ form {
   justify-content: center;
   gap: 15px;
   font-size: 16px;
-  width: 700px;
-}
-
-.player-colors,
-.player-names,
-.bgc-color {
-  display: flex;
-  justify-content: space-between;
 }
 
 .player-color,
@@ -38,12 +30,12 @@ form {
 
 .player-color select:focus,
 .player-names input:focus {
-  border: 2px solid rgb(156, 76, 76);
+  border: 2px solid var(--bgcBodyBottom);
 }
 
 .bgc-color button {
   display: flex;
-  background-color: rgb(156, 76, 76);
+  background-color: var(--bgcBodyBottom);
   font-size: 15px;
   padding: 2px 15px;
   border-radius: 5px;
@@ -55,4 +47,32 @@ form {
 .bgc-color button:hover {
   transform: scale(1.1);
   transition: transform 0.3s;
+}
+
+@media (max-width: 991px) {
+  .player-colors,
+  .player-names,
+  .bgc-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+  }
+  .player-color,
+  .bgc-style,
+  .player-names label {
+    margin: 5px 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  form {
+    width: 700px;
+  }
+  .player-colors,
+  .player-names,
+  .bgc-color {
+    display: flex;
+    justify-content: space-between;
+  }
 }

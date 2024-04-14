@@ -12,6 +12,7 @@ const GameContext = ({ children }) => {
     initialSlots,
     initialSlots,
   ]);
+  const [prevFullBoard, setPrevFullBoard] = useState(fullBoard);
   const [isPlayer2Next, setIsPlayer2Next] = useState(true);
   const [isPartMoving, setIsPartMoving] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +23,8 @@ const GameContext = ({ children }) => {
     playerTwoName: 'Player 2',
     playerOneColor: 'black',
     playerTwoColor: 'white',
+    backgroundColorBottom: '#f55e7a',
+    backgroundColorTop: '#fe9a8b',
   });
   const [areArrowsShown, setAreArrowsShown] = useState(false);
   const [whoWon, setWhoWon] = useState('');
@@ -33,6 +36,7 @@ const GameContext = ({ children }) => {
     updatedPart[i] = isPlayer2Next ? 'player-one' : 'player-two';
     updatedFullBoard[partId] = updatedPart;
     setFullBoard(updatedFullBoard);
+    setPrevFullBoard(fullBoard);
     setAreArrowsShown(true);
   };
 
@@ -62,41 +66,35 @@ const GameContext = ({ children }) => {
     }
   };
 
-  const resetBoard = () => {
-    setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
-    if (isMenuOpen) setIsMenuOpen(false);
-    if (areArrowsShown) setAreArrowsShown(false);
-    setPlayerOptions((prevOptions) => ({
-      ...prevOptions,
-      playerOneScore: 0,
-      playerTwoScore: 0,
-    }));
-  };
-
   useEffect(() => {
     checkIfWin(fullBoard);
   }, [fullBoard]);
 
+  useEffect(() => {
+    setPrevFullBoard(fullBoard);
+  }, [isPlayer2Next]);
+
   return (
     <Context.Provider
       value={{
-        isPlayer2Next,
-        setIsPlayer2Next,
         fullBoard,
         setFullBoard,
+        isPlayer2Next,
+        setIsPlayer2Next,
         isMenuOpen,
         setIsMenuOpen,
-        initialSlots,
         addBall,
-        areArrowsShown,
-        resetBoard,
         whoWon,
         setWhoWon,
         playerOptions,
         setPlayerOptions,
+        areArrowsShown,
         setAreArrowsShown,
         isPartMoving,
         setIsPartMoving,
+        prevFullBoard,
+        initialSlots,
+        setPrevFullBoard,
       }}
     >
       {children}

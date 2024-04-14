@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const Header = () => {
   const { setIsMenuOpen } = useGameContext();
-  const [activeDetail, setActiveDetail] = useState(null);
+  const [activeDetail, setActiveDetail] = useState('');
 
   const detailComponents = {
     options: <Options />,
@@ -16,9 +16,9 @@ const Header = () => {
     about: <About />,
   };
 
-  const handleMenuClick = (detailName) => {
-    setActiveDetail((prevDetail) =>
-      prevDetail === detailName ? null : detailName
+  const handleMenuClick = (componentName) => {
+    setActiveDetail((prevComponent) =>
+      prevComponent === componentName ? null : componentName
     );
   };
 
@@ -41,7 +41,7 @@ const Header = () => {
               style={{
                 borderBottom:
                   activeDetail === name
-                    ? '3px solid rgb(156, 76, 76)'
+                    ? '3px solid var(--bgcBodyBottom)'
                     : '3px solid transparent',
               }}
             >

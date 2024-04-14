@@ -1,0 +1,51 @@
+.about-container {
+  line-height: 1.2;
+}
+
+.about-game,
+.about-author {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.about-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.about-link {
+  display: flex;
+  align-items: center;
+  color: var(--bgcBodyBottom);
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: color 0.5s linear;
+}
+.about-link:hover {
+  color: rgb(57, 40, 131);
+}
+
+.about-icon {
+  margin-right: 5px;
+}
+
+@media (max-width: 991px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-idea {
+    margin: 40px 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .about-container {
+    width: 700px;
+    line-height: 1.2;
+  }
+  .about-idea {
+    margin: 5px 0;
+  }
+}

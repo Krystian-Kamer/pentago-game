@@ -1,0 +1,14 @@
+
+.two-steps {
+  margin: 10px 0;
+  font-weight: bold;
+}
+.repeat {
+  margin: 10px 0;
+}
+
+@media (min-width: 992px) {
+  .rules-container {
+    width: 700px;
+  }
+}
