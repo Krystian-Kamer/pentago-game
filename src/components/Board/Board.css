@@ -1,7 +1,13 @@
+.board-wrapper {
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .board {
   margin: 50px auto;
-  width: clamp(290px, 80vw, 680px);
-  height: clamp(290px, 80vw, 680px);
+  width: clamp(260px, 80vw, 680px);
+  height: clamp(260px, 80vw, 680px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);

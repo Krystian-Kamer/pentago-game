@@ -1,19 +1,17 @@
 .turn {
-  margin-bottom: 70px;
   display: flex;
   align-items: center;
   font-size: 50px;
   text-transform: uppercase;
   justify-content: center;
   font-family: audiowide;
-  height: clamp(60px, 8vw, 90px);
-  margin: 0 auto;
+  height: 12vh;
 }
 
 .ball-container {
   position: relative;
   height: 60px;
-  width: clamp(70px, 9vw, 80px);
+  width: clamp(40px, 9vw, 80px);
   display: flex;
   justify-content: center;
 }
@@ -81,14 +79,13 @@
 
 @media (max-width: 576px) {
   .turn {
-    margin-top: 45px;
     font-size: 25px;
   }
 }
 
 @media (min-width: 577px) and (max-width: 991px) {
   .turn {
-    margin-top: 70px;
     font-size: 35px;
+    margin-bottom: 50px;
   }
 }

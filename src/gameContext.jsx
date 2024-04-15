@@ -29,17 +29,6 @@ const GameContext = ({ children }) => {
   const [areArrowsShown, setAreArrowsShown] = useState(false);
   const [whoWon, setWhoWon] = useState('');
 
-  const addBall = (i, partId) => {
-    const updatedFullBoard = [...fullBoard];
-    const updatedPart = [...updatedFullBoard[partId]];
-    if (updatedPart[i] !== null) return;
-    updatedPart[i] = isPlayer2Next ? 'player-one' : 'player-two';
-    updatedFullBoard[partId] = updatedPart;
-    setFullBoard(updatedFullBoard);
-    setPrevFullBoard(fullBoard);
-    setAreArrowsShown(true);
-  };
-
   const checkIfWin = (fullBoard) => {
     const sortedBoard = sortSlots(fullBoard);
     for (const condition of winConditions) {
@@ -83,7 +72,6 @@ const GameContext = ({ children }) => {
         setIsPlayer2Next,
         isMenuOpen,
         setIsMenuOpen,
-        addBall,
         whoWon,
         setWhoWon,
         playerOptions,

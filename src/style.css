@@ -17,8 +17,8 @@
   --pink: radial-gradient(circle at 30% 30%, #fe04d9, #060606);
   --orange: radial-gradient(circle at 30% 30%, #fc840c, #000000);
   --brown: radial-gradient(circle at 30% 30%, #77460f, #0f0f0f);
-  --bgcBodyBottom: rgb(245, 94, 122);
-  --bgcBodyTop: #fe9a8b;
+  --bgcBodyBottom: #e43656;
+  --bgcBodyTop: #f3a397;
 }
 
 body {

@@ -77,30 +77,32 @@ const Board = () => {
   };
 
   return (
-    <div className='board'>
-      {parts.map((part, i) => {
-        return (
-          <div key={i} id={i} className={part}>
-            <PartOfBoard id={i} />
-            {areArrowsShown && (
-              <>
-                <button
-                  onClick={() => rotateLeft(i)}
-                  className='arrow arrow-left'
-                >
-                  <PiArrowArcLeftBold />
-                </button>
-                <button
-                  onClick={() => rotateRight(i)}
-                  className='arrow arrow-right'
-                >
-                  <PiArrowArcRightBold />
-                </button>
-              </>
-            )}
-          </div>
-        );
-      })}
+    <div className='board-wrapper'>
+      <div className='board'>
+        {parts.map((part, i) => {
+          return (
+            <div key={i} id={i} className={part}>
+              <PartOfBoard id={i} />
+              {areArrowsShown && (
+                <>
+                  <button
+                    onClick={() => rotateLeft(i)}
+                    className='arrow arrow-left'
+                  >
+                    <PiArrowArcLeftBold />
+                  </button>
+                  <button
+                    onClick={() => rotateRight(i)}
+                    className='arrow arrow-right'
+                  >
+                    <PiArrowArcRightBold />
+                  </button>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

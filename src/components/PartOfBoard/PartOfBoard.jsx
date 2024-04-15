@@ -6,11 +6,25 @@ const PartOfBoard = ({ id: partId }) => {
   const {
     fullBoard,
     initialSlots,
-    addBall,
     areArrowsShown,
     whoWon,
     isPartMoving,
+    isPlayer2Next,
+    setFullBoard,
+    setPrevFullBoard,
+    setAreArrowsShown,
   } = useGameContext();
+
+  const addBall = (i, partId) => {
+    const updatedFullBoard = [...fullBoard];
+    const updatedPart = [...updatedFullBoard[partId]];
+    if (updatedPart[i] !== null) return;
+    updatedPart[i] = isPlayer2Next ? 'player-one' : 'player-two';
+    updatedFullBoard[partId] = updatedPart;
+    setFullBoard(updatedFullBoard);
+    setPrevFullBoard(fullBoard);
+    setAreArrowsShown(true);
+  };
 
   return (
     <>
