@@ -1,6 +1,7 @@
 import './Footer.css';
 import { FaUndoAlt } from 'react-icons/fa';
 import { useGameContext } from '../../gameContext';
+import { initialPlayerOptions } from '../../data';
 
 const Footer = () => {
   const {
@@ -19,6 +20,7 @@ const Footer = () => {
     prevFullBoard,
     isPartMoving,
   } = useGameContext();
+  
   const { playerOneScore, playerTwoScore } = playerOptions;
 
   const resetBoard = () => {
@@ -27,16 +29,7 @@ const Footer = () => {
     if (areArrowsShown) setAreArrowsShown(false);
     if (whoWon) setWhoWon('');
     if (!isPlayer2Next) setIsPlayer2Next(true);
-    setPlayerOptions({
-      playerOneScore: 0,
-      playerTwoScore: 0,
-      playerOneName: 'Player 1',
-      playerTwoName: 'Player 2',
-      playerOneColor: 'black',
-      playerTwoColor: 'white',
-      backgroundColorBottom: '#f55e7a',
-      backgroundColorTop: '#fe9a8b',
-    });
+    setPlayerOptions(initialPlayerOptions);
   };
 
   const undo = () => {

@@ -88,3 +88,14 @@ export const availableColors = [
   'orange',
   'brown',
 ];
+
+export const initialPlayerOptions = {
+  playerOneScore: 0,
+  playerTwoScore: 0,
+  playerOneName: 'Player 1',
+  playerTwoName: 'Player 2',
+  playerOneColor: 'black',
+  playerTwoColor: 'white',
+  backgroundColorBottom: '#f55e7a',
+  backgroundColorTop: '#fe9a8b',
+};

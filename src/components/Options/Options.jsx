@@ -70,12 +70,6 @@ const Options = () => {
     }
   };
 
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty('--bgcBodyBottom', backgroundColorBottom);
-    root.style.setProperty('--bgcBodyTop', backgroundColorTop);
-  }, [backgroundColorBottom, backgroundColorTop]);
-
   return (
     <form>
       <div className='player-colors'>

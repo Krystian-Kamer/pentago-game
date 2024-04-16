@@ -47,7 +47,6 @@ const Board = () => {
     updatedFullBoard[i] = rotatedLeftPart;
     setFullBoard(updatedFullBoard);
     setAreArrowsShown(false);
-    setPrevFullBoard(updatedFullBoard);
   };
 
   const rotateRight = (i) => {
@@ -74,6 +73,7 @@ const Board = () => {
     const updatedFullBoard = [...fullBoard];
     updatedFullBoard[i] = rotatedRightPart;
     setAreArrowsShown(false);
+    setFullBoard(updatedFullBoard);
   };
 
   return (
