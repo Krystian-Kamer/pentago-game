@@ -12,7 +12,6 @@ const Board = () => {
     setFullBoard,
     setAreArrowsShown,
     setIsPartMoving,
-    setPrevFullBoard,
   } = useGameContext();
 
   const parts = [

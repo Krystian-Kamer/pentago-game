@@ -1,5 +1,6 @@
 import { useState, createContext, useContext, useEffect } from 'react';
 import { sortSlots, winConditions, initialPlayerOptions } from './data';
+import useLocalStorageState from './useLocalStorageState';
 
 const initialSlots = new Array(9).fill(null);
 const initialBoard = [initialSlots, initialSlots, initialSlots, initialSlots];
@@ -7,27 +8,25 @@ const initialBoard = [initialSlots, initialSlots, initialSlots, initialSlots];
 const Context = createContext();
 
 const GameContext = ({ children }) => {
-  const [fullBoard, setFullBoard] = useState(() => {
-    const localBoard = localStorage.getItem('localBoard');
-    return localBoard ? JSON.parse(localBoard) : initialBoard;
-  });
+  const [fullBoard, setFullBoard] = useLocalStorageState(
+    'localBoard',
+    initialBoard
+  );
   const [prevFullBoard, setPrevFullBoard] = useState(fullBoard);
-  const [isPlayer2Next, setIsPlayer2Next] = useState(() => {
-    const localIsPlayer2Next = localStorage.getItem('localIsPlayer2Next');
-    return localIsPlayer2Next ? JSON.parse(localIsPlayer2Next) : true;
-  });
+  const [isPlayer2Next, setIsPlayer2Next] = useLocalStorageState(
+    'localIsPlayer2Next',
+    true
+  );
   const [isPartMoving, setIsPartMoving] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [playerOptions, setPlayerOptions] = useState(() => {
-    const localPlayerOptions = localStorage.getItem('localPlayerOptions');
-    return localPlayerOptions
-      ? JSON.parse(localPlayerOptions)
-      : initialPlayerOptions;
-  });
-  const [areArrowsShown, setAreArrowsShown] = useState(() => {
-    const localAreArrowsShown = localStorage.getItem('localAreArrowsShown');
-    return localAreArrowsShown ? JSON.parse(localAreArrowsShown) : false;
-  });
+  const [playerOptions, setPlayerOptions] = useLocalStorageState(
+    'localPlayerOptions',
+    initialPlayerOptions
+  );
+  const [areArrowsShown, setAreArrowsShown] = useLocalStorageState(
+    'localAreArrowsShown',
+    false
+  );
   const [whoWon, setWhoWon] = useState('');
 
   const checkIfWin = (fullBoard) => {
@@ -57,21 +56,10 @@ const GameContext = ({ children }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('localBoard', JSON.stringify(fullBoard));
     checkIfWin(fullBoard);
   }, [fullBoard]);
 
   useEffect(() => {
-    localStorage.setItem('localIsPlayer2Next', JSON.stringify(isPlayer2Next));
-    setPrevFullBoard(fullBoard);
-  }, [isPlayer2Next]);
-
-  useEffect(() => {
-    localStorage.setItem('localAreArrowsShown', JSON.stringify(areArrowsShown));
-  }, [areArrowsShown]);
-
-  useEffect(() => {
-    localStorage.setItem('localPlayerOptions', JSON.stringify(playerOptions));
     const root = document.documentElement;
     root.style.setProperty(
       '--bgcBodyBottom',
@@ -79,6 +67,7 @@ const GameContext = ({ children }) => {
     );
     root.style.setProperty('--bgcBodyTop', playerOptions.backgroundColorTop);
   }, [playerOptions]);
+
   return (
     <Context.Provider
       value={{

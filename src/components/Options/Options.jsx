@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { availableColors } from '../../data';
 import { useGameContext } from '../../gameContext';
 import './Options.css';
@@ -10,8 +9,6 @@ const Options = () => {
     playerTwoColor,
     playerOneName,
     playerTwoName,
-    backgroundColorBottom,
-    backgroundColorTop,
   } = playerOptions;
 
   const playerOneColors = availableColors.filter(
