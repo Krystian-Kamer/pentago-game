@@ -64,6 +64,7 @@
 
 .text {
   margin-left: 20px;
+  color: black;
 }
 
 .detail:hover::after {

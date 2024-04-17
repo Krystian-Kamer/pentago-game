@@ -60,6 +60,10 @@
   }
 }
 
+.undo-btn{
+  color: black;
+}
+
 .undo-btn:hover {
   animation: undo-spin 0.8s linear infinite;
 }
