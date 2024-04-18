@@ -1,17 +1,18 @@
 .turn {
   display: flex;
   align-items: center;
-  font-size: 50px;
+  font-size: clamp(20px, 5vmin, 50px);
   text-transform: uppercase;
   justify-content: center;
   font-family: audiowide;
-  height: 11vh;
+  margin: 60px auto;
+  height: 12vh;
 }
 
 .ball-container {
   position: relative;
   height: 60px;
-  width: clamp(40px, 9vw, 80px);
+  width: clamp(40px, 9vmin, 80px);
   display: flex;
   justify-content: center;
 }
@@ -20,7 +21,7 @@
   position: absolute;
   top: -40px;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: -100;
   animation: bounce 0.7s cubic-bezier(0.49, 0, 0.89, 0.74) infinite alternate;
 }
 
@@ -31,6 +32,7 @@
   width: clamp(30px, 8vw, 50px);
   background-color: black;
   border-radius: 50%;
+  z-index: -100;
   box-shadow: 0 0 10px black;
   animation: shadow 0.7s cubic-bezier(0.49, 0, 0.89, 0.74) infinite alternate;
 }
@@ -80,12 +82,18 @@
 @media (max-width: 576px) {
   .turn {
     font-size: 25px;
+    margin: 20px auto;
   }
 }
 
 @media (min-width: 577px) and (max-width: 991px) {
   .turn {
     font-size: 35px;
-    margin-bottom: 50px;
+  }
+}
+
+@media (max-height: 800px) {
+  .turn {
+    margin: 25px auto;
   }
 }

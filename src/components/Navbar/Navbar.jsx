@@ -1,5 +1,5 @@
 import './Navbar.css';
-import { HiBars3 } from 'react-icons/hi2';
+import { FaBars } from 'react-icons/fa';
 import { useGameContext } from '../../gameContext';
 import Options from '../Options/Options';
 import Rules from '../Rules/Rules';
@@ -15,7 +15,6 @@ const Header = () => {
     rules: <Rules />,
     about: <About />,
   };
-
   const handleMenuClick = (componentName) => {
     setActiveDetail((prevComponent) =>
       prevComponent === componentName ? null : componentName
@@ -23,13 +22,13 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div className='container'>
       <div className='navbar-container'>
         <h1>
           pentago <span>game</span>
         </h1>
         <button onClick={() => setIsMenuOpen(true)} className='bars-icon'>
-          <HiBars3 />
+          <FaBars />
         </button>
 
         <div className='options'>
@@ -67,7 +66,7 @@ const Header = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 export default Header;

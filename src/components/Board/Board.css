@@ -1,13 +1,13 @@
 .board-wrapper {
-  height: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50vmin;
 }
 .board {
   margin: 50px auto;
-  width: clamp(260px, 80vw, 680px);
-  height: clamp(260px, 80vw, 680px);
+  width: clamp(260px, 55vmin, 680px);
+  height: clamp(260px, 55vmin, 680px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -48,9 +48,9 @@
 .arrow {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: clamp(15px, 7vw, 50px);
+  font-size: clamp(15px, 5.5vmin, 50px);
   background: transparent;
-  padding: 0px 10px;
+  color: black;
 }
 
 @keyframes arrow-left-spin {
@@ -125,7 +125,27 @@
   transform: rotate(180deg);
 }
 
+@media (max-width: 600px) {
+  .board-wrapper {
+    height: 90vmin;
+  }
+  .board {
+    width: clamp(260px, 85vmin, 680px);
+    height: clamp(260px, 85vmin, 680px);
+  }
+  .arrow {
+    padding: 0px 10px;
+  }
+}
 @media (min-width: 601px) {
+  .board {
+    box-shadow: 10px 10px 20px black;
+  }
+  .arrow {
+    padding: 0px;
+  }
+}
+@media (min-width: 800px) {
   .board {
     box-shadow: 15px 15px 25px black;
   }

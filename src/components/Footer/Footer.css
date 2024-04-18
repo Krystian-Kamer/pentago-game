@@ -1,6 +1,6 @@
 .footer {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   width: 100vw;
   font-family: audiowide;
   display: flex;
@@ -13,18 +13,17 @@
 .footer button,
 .score {
   width: 240px;
-  font-size: 35px;
   padding: 10px;
   text-transform: uppercase;
-  font-size: clamp(16px, 6vw, 35px);
+  font-size: clamp(10px, 4.5vmin, 35px);
 }
 
 .player-score {
   display: inline-block;
-  padding: 10px;
+  padding: 9px;
   border-radius: 15px;
-  width: clamp(30px, 12vw, 60px);
 }
+
 .player1-score {
   background-color: black;
   color: white;
@@ -60,7 +59,7 @@
   }
 }
 
-.undo-btn{
+.undo-btn {
   color: black;
 }
 

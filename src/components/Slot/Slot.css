@@ -1,7 +1,7 @@
 .ball {
   border-radius: 50%;
-  width: clamp(25px, 6vw, 50px);
-  height: clamp(25px, 6vw, 50px);
+  width: clamp(25px, 5vmin, 50px);
+  height: clamp(25px, 5vmin, 50px);
   margin: 0px 7px;
   align-self: center;
   justify-self: center;
@@ -9,8 +9,8 @@
 
 .slot-1,
 .slot-2 {
-  width: clamp(25px, 5.8vw, 55px);
-  height: clamp(25px, 5.8vw, 55px);
+  width: clamp(25px, 5vmin, 55px);
+  height: clamp(25px, 5vmin, 55px);
   background-color: rgb(69, 40, 40);
   border-radius: 50%;
   align-self: center;
