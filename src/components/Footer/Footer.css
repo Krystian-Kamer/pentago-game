@@ -20,6 +20,7 @@
 
 .player-score {
   display: inline-block;
+  width: clamp(20px, 9.5vmin, 55px);
   padding: 9px;
   border-radius: 15px;
 }

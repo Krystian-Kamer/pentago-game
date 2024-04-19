@@ -51,6 +51,7 @@
   font-size: clamp(15px, 5.5vmin, 50px);
   background: transparent;
   color: black;
+  z-index: 50;
 }
 
 @keyframes arrow-left-spin {
@@ -80,28 +81,28 @@
 }
 
 .arrow:hover {
-  font-size: clamp(12px, 6.5vw, 55px);
+  font-size: clamp(12px, 5.vw, 55px);
 }
 
 .top-left-part .arrow-left {
   top: 40%;
-  left: -20%;
+  left: -21%;
   transform: rotate(-90deg);
 }
 .top-left-part .arrow-right {
-  top: -20%;
+  top: -21%;
   left: 40%;
   transform: rotate(0deg);
 }
 
 .top-right-part .arrow-left {
-  top: -20%;
+  top: -21%;
   left: 40%;
   transform: rotate(0deg);
 }
 .top-right-part .arrow-right {
   top: 40%;
-  right: -20%;
+  right: -21%;
   transform: rotate(90deg);
 }
 
@@ -111,13 +112,13 @@
 }
 .bottom-left-part .arrow-right {
   top: 40%;
-  left: -20%;
+  left: -21%;
   transform: rotate(-90deg);
 }
 
 .bottom-right-part .arrow-left {
   top: 40%;
-  right: -20%;
+  right: -21%;
   transform: rotate(90deg);
 }
 .bottom-right-part .arrow-right {

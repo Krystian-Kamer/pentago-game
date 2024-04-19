@@ -12,6 +12,8 @@ const Board = () => {
     setFullBoard,
     setAreArrowsShown,
     setIsPartMoving,
+    setPrevFullBoard,
+    prevFullBoard,
   } = useGameContext();
 
   const parts = [
@@ -45,6 +47,7 @@ const Board = () => {
     const updatedFullBoard = [...fullBoard];
     updatedFullBoard[i] = rotatedLeftPart;
     setFullBoard(updatedFullBoard);
+    setPrevFullBoard(updatedFullBoard);
     setAreArrowsShown(false);
   };
 
@@ -71,8 +74,9 @@ const Board = () => {
     ];
     const updatedFullBoard = [...fullBoard];
     updatedFullBoard[i] = rotatedRightPart;
-    setAreArrowsShown(false);
     setFullBoard(updatedFullBoard);
+    setPrevFullBoard(updatedFullBoard);
+    setAreArrowsShown(false);
   };
 
   return (

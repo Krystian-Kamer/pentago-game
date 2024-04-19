@@ -9,6 +9,7 @@ import { useState } from 'react';
 const Header = () => {
   const { setIsMenuOpen } = useGameContext();
   const [activeDetail, setActiveDetail] = useState('');
+  
 
   const detailComponents = {
     options: <Options />,
@@ -51,8 +52,9 @@ const Header = () => {
       </div>
 
       <div
-        className='details-container'
-        style={{ visibility: activeDetail ? 'visible' : 'hidden' }}
+        className={`details-container ${
+          activeDetail ? 'details-container-show' : 'details-container-hide'
+        }`}
       >
         {activeDetail && (
           <div>
