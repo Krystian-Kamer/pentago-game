@@ -11,12 +11,15 @@ const WinModal = () => {
     areArrowsShown,
     setAreArrowsShown,
     setWhoWon,
+    isPlayer2Next,
+    setIsPlayer2Next,
   } = useGameContext();
 
   const startNewGame = () => {
     setFullBoard([initialSlots, initialSlots, initialSlots, initialSlots]);
     if (isMenuOpen) setIsMenuOpen(false);
     if (areArrowsShown) setAreArrowsShown(false);
+    setIsPlayer2Next(!isPlayer2Next);
     setWhoWon('');
   };
 
