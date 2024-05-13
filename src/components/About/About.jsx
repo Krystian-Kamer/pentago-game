@@ -34,10 +34,11 @@ const About = () => {
           <FaSquareGithub className='about-icon' />
           <span>github</span>
         </a>
-        <div className='about-link'>
+
+        <a className='about-link' href='tel:+666660128'>
           <FaPhoneSquareAlt className='about-icon' />
           <span>666 660 128</span>
-        </div>
+        </a>
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-      <button onClick={isPartMoving ? null : undo}>
+      <button onClick={isPartMoving ? null : undo} title='Undo'>
         <FaUndoAlt className='undo-btn' />
       </button>
       <div className='score'>
