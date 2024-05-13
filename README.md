@@ -1,4 +1,4 @@
-#Pentago Game
+<h2>Pentago Game</h2>
 * I present my first project in React. This is a game for two players.
 * This is full responsive website.
 * In game Options You can change player color, player name, You can also change background to random or set default background.
