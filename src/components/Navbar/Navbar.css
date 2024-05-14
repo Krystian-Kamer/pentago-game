@@ -86,7 +86,6 @@
   }
 
   .details-container {
-    visibility: visible;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -115,6 +114,9 @@
   .details-container-hide {
     top: 100%;
     animation: slideOut 0.4s ease forwards;
+  }
+  .details-hidden {
+    opacity: 0;
   }
 
   @keyframes slideIn {
